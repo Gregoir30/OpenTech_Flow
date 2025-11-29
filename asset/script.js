@@ -154,32 +154,55 @@ document.querySelectorAll('section').forEach(section => {
   observer.observe(section);
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  const slider = document.querySelector('.testimonial-slider');
-  const items = document.querySelectorAll('.testimonial-item');
-  const prevBtn = document.querySelector('.prev-btn');
-  const nextBtn = document.querySelector('.next-btn');
+// script.js
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".testimonial-slider");
+  const slides = Array.from(document.querySelectorAll(".testimonial-item"));
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
 
   let currentIndex = 0;
-  const total = items.length;
 
   function updateSlider() {
-    slider.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+    const offset = - currentIndex * 100;
+    slider.style.transform = `translateX(${offset}%)`;
   }
 
-  nextBtn.addEventListener('click', function() {
-    currentIndex = (currentIndex + 1) % total;
+  prevBtn.addEventListener("click", () => {
+    currentIndex--;
+    if (currentIndex < 0) {
+      currentIndex = slides.length - 1;
+    }
     updateSlider();
   });
 
-  prevBtn.addEventListener('click', function() {
-    currentIndex = (currentIndex - 1 + total) % total;
+  nextBtn.addEventListener("click", () => {
+    currentIndex++;
+    if (currentIndex >= slides.length) {
+      currentIndex = 0;
+    }
     updateSlider();
   });
 
-  // Optionnel: auto-play toutes les 5 secondes
-  setInterval(function() {
-    currentIndex = (currentIndex + 1) % total;
+  // Optionnel : auto-slide toutes les 5 secondes
+  let autoSlide = setInterval(() => {
+    currentIndex++;
+    if (currentIndex >= slides.length) currentIndex = 0;
     updateSlider();
   }, 5000);
+
+  // Si l’utilisateur clique sur un bouton — reset interval pour éviter conflit
+  [prevBtn, nextBtn].forEach(btn => {
+    btn.addEventListener("click", () => {
+      clearInterval(autoSlide);
+      autoSlide = setInterval(() => {
+        currentIndex++;
+        if (currentIndex >= slides.length) currentIndex = 0;
+        updateSlider();
+      }, 5000);
+    });
+  });
+
+  // Initialisation
+  updateSlider();
 });
