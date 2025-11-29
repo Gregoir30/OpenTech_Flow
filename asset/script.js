@@ -55,17 +55,205 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Form submission handler
-  const contactForm = document.querySelector('.contact-form form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      // You can add form submission logic here
-      console.log('Form submitted');
-      // Show success message
-      alert('Merci pour votre message! Je vous recontacterai bientôt.');
-      this.reset();
+// Sélection des éléments
+const form = document.querySelector('form[aria-label="Formulaire de contact"]');
+const nameEl = document.querySelector('#name');
+const emailEl = document.querySelector('#email');
+const phoneEl = document.querySelector('#phone');
+const messageEl = document.querySelector('#message');
+
+// Fonction utilitaire : Vérifier si un champ est vide
+const isRequired = value => value === '' ? false : true;
+
+// Fonction utilitaire : Vérifier la longueur
+const isBetween = (length, min, max) => length < min || length > max ? false : true;
+
+// Fonction utilitaire : Regex Email standard
+const isEmailValid = (email) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+};
+
+// Fonction utilitaire : Regex Téléphone (Accepte format international +228... ou local 90...)
+// Accepte les espaces, les tirets et les parenthèses
+const isPhoneValid = (phone) => {
+    const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2,6}$/im;
+    return re.test(phone);
+};
+
+// --- Fonctions d'affichage des erreurs/succès ---
+
+const showError = (input, message) => {
+    // Récupère le parent (.form-group)
+    const formField = input.parentElement;
+    
+    // Ajoute la classe d'erreur
+    input.classList.remove('success');
+    input.classList.add('error');
+    formField.classList.add('show-error');
+
+    // Affiche le message
+    // On vérifie si la balise <small> existe déjà, sinon on la crée
+    let errorDisplay = formField.querySelector('small');
+    if (!errorDisplay) {
+        errorDisplay = document.createElement('small');
+        formField.appendChild(errorDisplay);
+    }
+    errorDisplay.innerText = message;
+};
+
+const showSuccess = (input) => {
+    const formField = input.parentElement;
+
+    // Enlève la classe d'erreur
+    input.classList.remove('error');
+    input.classList.add('success');
+    formField.classList.remove('show-error');
+
+    // Vide le message d'erreur
+    const errorDisplay = formField.querySelector('small');
+    if (errorDisplay) {
+        errorDisplay.innerText = '';
+    }
+};
+
+// --- Fonctions de validation individuelles ---
+
+const checkName = () => {
+    let valid = false;
+    const min = 3, max = 50;
+    const name = nameEl.value.trim();
+
+    if (!isRequired(name)) {
+        showError(nameEl, 'Le nom ne peut pas être vide.');
+    } else if (!isBetween(name.length, min, max)) {
+        showError(nameEl, `Le nom doit contenir entre ${min} et ${max} caractères.`);
+    } else {
+        showSuccess(nameEl);
+        valid = true;
+    }
+    return valid;
+};
+
+const checkEmail = () => {
+    let valid = false;
+    const email = emailEl.value.trim();
+
+    if (!isRequired(email)) {
+        showError(emailEl, "L'email ne peut pas être vide.");
+    } else if (!isEmailValid(email)) {
+        showError(emailEl, "L'adresse email n'est pas valide.");
+    } else {
+        showSuccess(emailEl);
+        valid = true;
+    }
+    return valid;
+};
+
+const checkPhone = () => {
+    let valid = false;
+    const phone = phoneEl.value.trim();
+
+    // Le téléphone n'est pas 'required' dans le HTML, donc on valide seulement s'il est rempli
+    if (!isRequired(phone)) {
+        // Si vide, on considère valide (car optionnel) mais on enlève le vert/rouge
+        phoneEl.classList.remove('success', 'error');
+        phoneEl.parentElement.classList.remove('show-error');
+        valid = true; 
+    } else if (!isPhoneValid(phone)) {
+        showError(phoneEl, "Numéro de téléphone invalide.");
+    } else {
+        showSuccess(phoneEl);
+        valid = true;
+    }
+    return valid;
+};
+
+const checkMessage = () => {
+    let valid = false;
+    const message = messageEl.value.trim();
+    const min = 10;
+
+    if (!isRequired(message)) {
+        showError(messageEl, "Le message ne peut pas être vide.");
+    } else if (message.length < min) {
+        showError(messageEl, `Le message doit contenir au moins ${min} caractères.`);
+    } else {
+        showSuccess(messageEl);
+        valid = true;
+    }
+    return valid;
+};
+
+// --- Écouteurs d'événements ---
+
+// 1. Validation en temps réel (Debounce pour éviter de spammer pendant la frappe)
+const debounce = (fn, delay = 500) => {
+    let timeoutId;
+    return (...args) => {
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        timeoutId = setTimeout(() => {
+            fn.apply(null, args);
+        }, delay);
+    };
+};
+
+// Appliquer la validation instantanée
+if(form) {
+    form.addEventListener('input', debounce(function (e) {
+        switch (e.target.id) {
+            case 'name':
+                checkName();
+                break;
+            case 'email':
+                checkEmail();
+                break;
+            case 'phone':
+                checkPhone();
+                break;
+            case 'message':
+                checkMessage();
+                break;
+        }
+    }));
+
+    // 2. Validation à la soumission
+    form.addEventListener('submit', function (e) {
+        // Empêcher l'envoi par défaut
+        e.preventDefault();
+
+        // Valider tous les champs
+        let isNameValid = checkName(),
+            isEmailValid = checkEmail(),
+            isPhoneValid = checkPhone(),
+            isMessageValid = checkMessage();
+
+        let isFormValid = isNameValid && isEmailValid && isPhoneValid && isMessageValid;
+
+        // Si tout est valide
+        if (isFormValid) {
+            // Simulation d'envoi (Ici vous connecterez votre Backend ou EmailJS)
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            
+            submitBtn.innerText = 'Envoi en cours...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                alert('Merci ! Votre message a été envoyé avec succès.');
+                form.reset(); // Vider le formulaire
+                
+                // Retirer les classes success (vert)
+                document.querySelectorAll('.success').forEach(el => el.classList.remove('success'));
+                
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        }
     });
-  }
+}
 
   // Typed.js initialization (typewriter effect)
   try {

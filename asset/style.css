@@ -474,6 +474,7 @@ nav {
   font-size: 0.95rem;
   color: var(--text-light);
   margin-bottom: 0.35rem;
+  list-style: none;
 }
 
 .timeline {
@@ -960,7 +961,7 @@ footer p {
   .header-container {
     padding: 0.75rem 1rem;
   }
-
+  
   nav {
     gap: 1rem;
   }
@@ -1265,4 +1266,45 @@ section .container h2::after {
     width: 60px;
     height: 60px;
   }
+}
+
+/* --- Validation Formulaire --- */
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem; /* Un peu plus d'espace pour le message d'erreur */
+}
+
+/* Bordures dynamiques */
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #ef4444; /* Rouge */
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.form-group input.success,
+.form-group textarea.success {
+  border-color: #22c55e; /* Vert */
+}
+
+/* Message d'erreur */
+.form-group small {
+  color: #ef4444;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  visibility: hidden; /* Caché par défaut */
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.form-group.show-error small {
+  visibility: visible;
+  opacity: 1;
+  bottom: -22px;
+}
+
+.timeline {
+  list-style: none;
 }
