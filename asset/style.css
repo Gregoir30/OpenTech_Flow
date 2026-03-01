@@ -380,7 +380,7 @@
     }
 
     .hero-photo {
-      width: 300px; height: 380px;
+      width: 600px; height: 580px;
       object-fit: cover;
       border-radius: 24px;
       position: relative; z-index: 1;
