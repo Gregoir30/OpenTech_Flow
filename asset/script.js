@@ -1,396 +1,217 @@
-// Navigation responsive
-document.addEventListener('DOMContentLoaded', function() {
-  const burger = document.querySelector('.burger');
-  const navLinks = document.querySelector('.nav-links');
-  const navItems = navLinks?.querySelectorAll('a');
 
-  // Toggle menu on burger click
-  if (burger) {
-    burger.addEventListener('click', function(e) {
-      e.stopPropagation();
-      navLinks.classList.toggle('open');
-      burger.classList.toggle('toggle');
+    // ─── THEME TOGGLE ─────────────────────────────────────────
+    const html = document.documentElement;
+    const themeBtn = document.getElementById('theme-toggle');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') html.classList.add('light');
+
+    themeBtn.addEventListener('click', () => {
+      html.classList.toggle('light');
+      localStorage.setItem('theme', html.classList.contains('light') ? 'light' : 'dark');
+      // ripple effect
+      themeBtn.style.transform = 'scale(0.85)';
+      setTimeout(() => themeBtn.style.transform = '', 200);
     });
-  }
 
-  // Close menu when clicking on a link
-  if (navItems) {
-    navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        burger.classList.remove('toggle');
+    // ─── CURSOR ───────────────────────────────────────────────
+    const cursor = document.getElementById('cursor');
+    const follower = document.getElementById('cursor-follower');
+    let mx = 0, my = 0, fx = 0, fy = 0;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx - 5 + 'px';
+      cursor.style.top = my - 5 + 'px';
+    });
+    function animFollower() {
+      fx += (mx - fx - 18) * 0.12;
+      fy += (my - fy - 18) * 0.12;
+      follower.style.left = fx + 'px';
+      follower.style.top = fy + 'px';
+      requestAnimationFrame(animFollower);
+    }
+    animFollower();
+    document.querySelectorAll('a,button,.portfolio-item,.service-card').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; follower.style.transform = 'scale(1.5)'; });
+      el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; follower.style.transform = 'scale(1)'; });
+    });
+
+    // ─── HEADER SCROLL ───────────────────────────────────────
+    const header = document.getElementById('header');
+    const backTop = document.getElementById('back-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) { header.classList.add('scrolled'); backTop.classList.add('visible'); }
+      else { header.classList.remove('scrolled'); backTop.classList.remove('visible'); }
+      // Active nav
+      document.querySelectorAll('section[id]').forEach(sec => {
+        const top = sec.offsetTop - 100;
+        const bot = top + sec.offsetHeight;
+        if (window.scrollY >= top && window.scrollY < bot) {
+          document.querySelectorAll('nav a').forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href') === '#' + sec.id) a.classList.add('active');
+          });
+        }
       });
     });
-  }
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // Close menu when clicking outside
-  document.addEventListener('click', function(e) {
-    if (navLinks && navLinks.classList.contains('open')) {
-      if (!e.target.closest('nav') && !e.target.closest('.burger')) {
-        navLinks.classList.remove('open');
-        burger.classList.remove('toggle');
+    // ─── MOBILE DRAWER ────────────────────────────────────────
+    const burger = document.getElementById('burger');
+    const mobileNav = document.getElementById('mobile-nav');
+    const closeNav = document.getElementById('close-nav');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+
+    function openMobileNav() {
+      mobileNav.classList.add('open');
+      mobileNav.setAttribute('aria-hidden', 'false');
+      drawerOverlay.classList.add('open');
+      burger.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+      mobileNav.setAttribute('aria-hidden', 'true');
+      drawerOverlay.classList.remove('open');
+      burger.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click', () => {
+      mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav();
+    });
+    closeNav.addEventListener('click', closeMobileNav);
+    drawerOverlay.addEventListener('click', closeMobileNav);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
+
+    // ─── TYPED ROLES ──────────────────────────────────────────
+    const roles = ['Développeur Web', 'Flutter Developer', 'Ethical Hacker', 'Ingénieur Réseau', 'Security Engineer', 'Pentester'];
+    let ri = 0, ci = 0, deleting = false;
+    const typedEl = document.getElementById('typed-role');
+    function typeRole() {
+      const word = roles[ri];
+      if (!deleting) {
+        typedEl.textContent = word.slice(0, ++ci);
+        if (ci === word.length) { deleting = true; setTimeout(typeRole, 2000); return; }
+      } else {
+        typedEl.textContent = word.slice(0, --ci);
+        if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
       }
+      setTimeout(typeRole, deleting ? 60 : 90);
     }
-  });
+    typeRole();
 
-  // Close menu on escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && navLinks?.classList.contains('open')) {
-      navLinks.classList.remove('open');
-      burger.classList.remove('toggle');
-    }
-  });
-
-  // Smooth scroll for anchor links
-  const anchorLinks = document.querySelectorAll('a[href^="#"]');
-  anchorLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href !== '#' && document.querySelector(href)) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  // Form submission handler
-// Sélection des éléments
-const form = document.querySelector('form[aria-label="Formulaire de contact"]');
-const nameEl = document.querySelector('#name');
-const emailEl = document.querySelector('#email');
-const phoneEl = document.querySelector('#phone');
-const messageEl = document.querySelector('#message');
-
-// Fonction utilitaire : Vérifier si un champ est vide
-const isRequired = value => value === '' ? false : true;
-
-// Fonction utilitaire : Vérifier la longueur
-const isBetween = (length, min, max) => length < min || length > max ? false : true;
-
-// Fonction utilitaire : Regex Email standard
-const isEmailValid = (email) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-};
-
-// Fonction utilitaire : Regex Téléphone (Accepte format international +228... ou local 90...)
-// Accepte les espaces, les tirets et les parenthèses
-const isPhoneValid = (phone) => {
-    const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2,6}$/im;
-    return re.test(phone);
-};
-
-// --- Fonctions d'affichage des erreurs/succès ---
-
-const showError = (input, message) => {
-    // Récupère le parent (.form-group)
-    const formField = input.parentElement;
-    
-    // Ajoute la classe d'erreur
-    input.classList.remove('success');
-    input.classList.add('error');
-    formField.classList.add('show-error');
-
-    // Affiche le message
-    // On vérifie si la balise <small> existe déjà, sinon on la crée
-    let errorDisplay = formField.querySelector('small');
-    if (!errorDisplay) {
-        errorDisplay = document.createElement('small');
-        formField.appendChild(errorDisplay);
-    }
-    errorDisplay.innerText = message;
-};
-
-const showSuccess = (input) => {
-    const formField = input.parentElement;
-
-    // Enlève la classe d'erreur
-    input.classList.remove('error');
-    input.classList.add('success');
-    formField.classList.remove('show-error');
-
-    // Vide le message d'erreur
-    const errorDisplay = formField.querySelector('small');
-    if (errorDisplay) {
-        errorDisplay.innerText = '';
-    }
-};
-
-// --- Fonctions de validation individuelles ---
-
-const checkName = () => {
-    let valid = false;
-    const min = 3, max = 50;
-    const name = nameEl.value.trim();
-
-    if (!isRequired(name)) {
-        showError(nameEl, 'Le nom ne peut pas être vide.');
-    } else if (!isBetween(name.length, min, max)) {
-        showError(nameEl, `Le nom doit contenir entre ${min} et ${max} caractères.`);
-    } else {
-        showSuccess(nameEl);
-        valid = true;
-    }
-    return valid;
-};
-
-const checkEmail = () => {
-    let valid = false;
-    const email = emailEl.value.trim();
-
-    if (!isRequired(email)) {
-        showError(emailEl, "L'email ne peut pas être vide.");
-    } else if (!isEmailValid(email)) {
-        showError(emailEl, "L'adresse email n'est pas valide.");
-    } else {
-        showSuccess(emailEl);
-        valid = true;
-    }
-    return valid;
-};
-
-const checkPhone = () => {
-    let valid = false;
-    const phone = phoneEl.value.trim();
-
-    // Le téléphone n'est pas 'required' dans le HTML, donc on valide seulement s'il est rempli
-    if (!isRequired(phone)) {
-        // Si vide, on considère valide (car optionnel) mais on enlève le vert/rouge
-        phoneEl.classList.remove('success', 'error');
-        phoneEl.parentElement.classList.remove('show-error');
-        valid = true; 
-    } else if (!isPhoneValid(phone)) {
-        showError(phoneEl, "Numéro de téléphone invalide.");
-    } else {
-        showSuccess(phoneEl);
-        valid = true;
-    }
-    return valid;
-};
-
-const checkMessage = () => {
-    let valid = false;
-    const message = messageEl.value.trim();
-    const min = 10;
-
-    if (!isRequired(message)) {
-        showError(messageEl, "Le message ne peut pas être vide.");
-    } else if (message.length < min) {
-        showError(messageEl, `Le message doit contenir au moins ${min} caractères.`);
-    } else {
-        showSuccess(messageEl);
-        valid = true;
-    }
-    return valid;
-};
-
-// --- Écouteurs d'événements ---
-
-// 1. Validation en temps réel (Debounce pour éviter de spammer pendant la frappe)
-const debounce = (fn, delay = 500) => {
-    let timeoutId;
-    return (...args) => {
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-        }
-        timeoutId = setTimeout(() => {
-            fn.apply(null, args);
-        }, delay);
-    };
-};
-
-// Appliquer la validation instantanée
-if(form) {
-    form.addEventListener('input', debounce(function (e) {
-        switch (e.target.id) {
-            case 'name':
-                checkName();
-                break;
-            case 'email':
-                checkEmail();
-                break;
-            case 'phone':
-                checkPhone();
-                break;
-            case 'message':
-                checkMessage();
-                break;
-        }
-    }));
-
-    // 2. Validation à la soumission
-    form.addEventListener('submit', function (e) {
-        // Empêcher l'envoi par défaut
-        e.preventDefault();
-
-        // Valider tous les champs
-        let isNameValid = checkName(),
-            isEmailValid = checkEmail(),
-            isPhoneValid = checkPhone(),
-            isMessageValid = checkMessage();
-
-        let isFormValid = isNameValid && isEmailValid && isPhoneValid && isMessageValid;
-
-        // Si tout est valide
-        if (isFormValid) {
-            // Simulation d'envoi (Ici vous connecterez votre Backend ou EmailJS)
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerText;
-            
-            submitBtn.innerText = 'Envoi en cours...';
-            submitBtn.disabled = true;
-
-            setTimeout(() => {
-                alert('Merci ! Votre message a été envoyé avec succès.');
-                form.reset(); // Vider le formulaire
-                
-                // Retirer les classes success (vert)
-                document.querySelectorAll('.success').forEach(el => el.classList.remove('success'));
-                
-                submitBtn.innerText = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
-        }
-    });
-}
-
-  // Typed.js initialization (typewriter effect)
-  try {
-    const typedEl = document.querySelector('.typed');
-    if (typedEl && window.Typed) {
-      const raw = typedEl.getAttribute('data-typed-items') || '';
-      const strings = raw.split(',').map(s => s.trim()).filter(Boolean);
-      // Initialize Typed with sensible defaults
-      new Typed('.typed', {
-        strings: strings.length ? strings : ['Ethical Hacker'],
-        typeSpeed: 70,
-        backSpeed: 40,
-        backDelay: 1800,
-        startDelay: 300,
-        loop: true,
-        showCursor: true,
-        cursorChar: '|'
-      });
-    }
-  } catch (err) {
-    // fail gracefully if Typed.js isn't available
-    console.warn('Typed.js initialization failed:', err);
-  }
-
-  // Simple portfolio filters (no external isotope required)
-  (function initPortfolioFilters(){
-    const filterBtns = document.querySelectorAll('.portfolio-filters li');
-    const items = Array.from(document.querySelectorAll('.portfolio-item'));
-    if (!filterBtns.length || !items.length) return;
-
-    function showAll(){
-      items.forEach(i => {
-        i.style.display = '';
-        i.style.opacity = '1';
-        i.style.transform = 'translateY(0)';
-      });
-    }
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', function(){
-        filterBtns.forEach(b => b.classList.remove('filter-active'));
-        this.classList.add('filter-active');
-        const filter = this.getAttribute('data-filter');
-        if (!filter || filter === '*') { showAll(); return; }
-        const className = filter.replace('.', '');
-        items.forEach(i => {
-          if (i.classList.contains(className)) {
-            i.style.display = '';
-            // small reveal animation
-            requestAnimationFrame(() => {
-              i.style.opacity = '1';
-              i.style.transform = 'translateY(0)';
-            });
+    // ─── PORTFOLIO FILTER ─────────────────────────────────────
+    document.querySelectorAll('.portfolio-filters li').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.portfolio-filters li').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+          if (filter === '*' || item.dataset.category === filter) {
+            item.style.display = '';
+            setTimeout(() => item.style.opacity = '1', 10);
           } else {
-            // hide with transition
-            i.style.opacity = '0';
-            i.style.transform = 'translateY(20px)';
-            setTimeout(() => { i.style.display = 'none'; }, 260);
+            item.style.opacity = '0';
+            setTimeout(() => item.style.display = 'none', 300);
           }
         });
       });
     });
-  })();
-});
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -100px 0px'
-};
+    // ─── INTERSECTION OBSERVER ────────────────────────────────
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          // Count up numbers
+          e.target.querySelectorAll('[data-count]').forEach(el => {
+            const target = +el.dataset.count;
+            let current = 0;
+            const step = target / 40;
+            const interval = setInterval(() => {
+              current = Math.min(current + step, target);
+              el.textContent = Math.floor(current) + '+';
+              if (current >= target) clearInterval(interval);
+            }, 40);
+          });
+          // Skill bars
+          e.target.querySelectorAll('.skill-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+          });
+        }
+      });
+    }, { threshold: 0.15 });
 
-const observer = new IntersectionObserver(function(entries) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-}, observerOptions);
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Observe sections for animation
-document.querySelectorAll('section').forEach(section => {
-  section.style.opacity = '0';
-  section.style.transform = 'translateY(20px)';
-  section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(section);
-});
+    // Also observe skill bars directly
+    const skillObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.skill-fill').forEach(bar => {
+            setTimeout(() => bar.style.width = bar.dataset.width + '%', 200);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.skills-layout > div').forEach(el => skillObserver.observe(el));
 
-// script.js
-document.addEventListener("DOMContentLoaded", () => {
-  const slider = document.querySelector(".testimonial-slider");
-  const slides = Array.from(document.querySelectorAll(".testimonial-item"));
-  const prevBtn = document.querySelector(".prev-btn");
-  const nextBtn = document.querySelector(".next-btn");
-
-  let currentIndex = 0;
-
-  function updateSlider() {
-    const offset = - currentIndex * 100;
-    slider.style.transform = `translateX(${offset}%)`;
-  }
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex--;
-    if (currentIndex < 0) {
-      currentIndex = slides.length - 1;
-    }
-    updateSlider();
-  });
-
-  nextBtn.addEventListener("click", () => {
-    currentIndex++;
-    if (currentIndex >= slides.length) {
-      currentIndex = 0;
-    }
-    updateSlider();
-  });
-
-  // Optionnel : auto-slide toutes les 5 secondes
-  let autoSlide = setInterval(() => {
-    currentIndex++;
-    if (currentIndex >= slides.length) currentIndex = 0;
-    updateSlider();
-  }, 5000);
-
-  // Si l’utilisateur clique sur un bouton — reset interval pour éviter conflit
-  [prevBtn, nextBtn].forEach(btn => {
-    btn.addEventListener("click", () => {
-      clearInterval(autoSlide);
-      autoSlide = setInterval(() => {
-        currentIndex++;
-        if (currentIndex >= slides.length) currentIndex = 0;
-        updateSlider();
-      }, 5000);
+    // ─── SERVICE PILLS ────────────────────────────────────────
+    document.querySelectorAll('.service-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.service-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        document.getElementById('selected-service').value = pill.dataset.value;
+      });
     });
-  });
 
-  // Initialisation
-  updateSlider();
-});
+    // ─── CONTACT FORM → WHATSAPP ──────────────────────────────
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name    = document.getElementById('name').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const phone   = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const service = document.getElementById('selected-service').value;
+
+      const serviceLabels = {
+        web: 'Développement Web', mobile: 'App Mobile',
+        audit: 'Audit / Pentest', reseau: 'Config Réseau',
+        formation: 'Formation', autre: 'Autre'
+      };
+
+      if (!name || !email || !message) {
+        const errorEl = document.getElementById('form-error');
+        errorEl.style.display = 'flex';
+        setTimeout(() => errorEl.style.display = 'none', 4000);
+        return;
+      }
+
+      const text = [
+        '*Nouveau message depuis le portfolio*',
+        '',
+        `*Nom :* ${name}`,
+        `*Email :* ${email}`,
+        phone ? `*Téléphone :* ${phone}` : null,
+        `*Service :* ${serviceLabels[service] || service}`,
+        '',
+        `*Message :*`,
+        message
+      ].filter(l => l !== null).join('\n');
+
+      const waUrl = `https://wa.me/22890416117?text=${encodeURIComponent(text)}`;
+
+      // Show success then open WhatsApp
+      const successEl = document.getElementById('form-success');
+      successEl.style.display = 'flex';
+      this.reset();
+      document.querySelectorAll('.service-pill').forEach((p,i) => p.classList.toggle('active', i===0));
+      document.getElementById('selected-service').value = 'web';
+      setTimeout(() => {
+        window.open(waUrl, '_blank');
+        setTimeout(() => successEl.style.display = 'none', 5000);
+      }, 500);
+    });
+  
