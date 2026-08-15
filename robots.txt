@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Allow AI crawlers for Generative Engine Optimization (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://gregoir30.github.io/OpenTech_Flow/sitemap.xml

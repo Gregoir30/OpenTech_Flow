@@ -20,7 +20,7 @@
       --font-mono: 'JetBrains Mono', monospace;
       --radius: 16px;
       --radius-sm: 8px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* ── LIGHT THEME ── */
@@ -48,7 +48,9 @@
     html, body, header, section, footer, .service-card, .metric-card,
     .resume-card, .portfolio-item, .testimonial-card, .contact-item,
     .skill-track, .tag, .social-link, .btn-cv, nav a {
-      transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease !important;
+      transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     body {
