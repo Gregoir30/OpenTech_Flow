@@ -2160,11 +2160,18 @@
       100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
 
-    /* Back-to-Top Button Glow */
-    #back-top:hover {
-      box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
-      background: var(--accent); color: #000;
+    /* ── FADE IN ANIMATIONS (Apple Smooth Reveal) ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
     }
+    .fade-in.visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
 
 
   

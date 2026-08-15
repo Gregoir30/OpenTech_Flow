@@ -667,4 +667,24 @@ PORT     STATE SERVICE       VERSION<br>
         const aboutSec = document.getElementById('about');
         if (aboutSec) aboutSec.scrollIntoView({ behavior: 'smooth' });
       });
-    }
+    }
+
+    // ─── INTERSECTION OBSERVER FOR FADE-IN ELEMENTS (APPLE HIG) ──
+    if ('IntersectionObserver' in window) {
+      const observerOptions = { threshold: 0.05, rootMargin: '0px 0px -40px 0px' };
+      const fadeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+    } else {
+      document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+    }
+    // Safety fallback to guarantee visibility for all screen tools & print
+    setTimeout(() => {
+      document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+    }, 1200);
