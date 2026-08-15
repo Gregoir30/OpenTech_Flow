@@ -1143,7 +1143,8 @@
               </div>
               <div class="form-group">
                 <label for="message"><i class="bi bi-chat-dots-fill"></i> Décrivez votre projet</label>
-                <textarea id="message" name="message" placeholder="Contexte, objectif, délai, budget estimé... Donnez-moi un maximum de détails !" required></textarea>
+                <textarea id="message" name="message" maxlength="600" placeholder="Contexte, objectif, délai, budget estimé... Donnez-moi un maximum de détails !" required></textarea>
+                <div class="char-count-bar"><span id="char-counter">0 / 600 caractères</span></div>
               </div>
               <button type="submit" class="submit-btn">
                 <i class="bi bi-whatsapp"></i>

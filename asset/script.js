@@ -628,4 +628,43 @@ PORT     STATE SERVICE       VERSION<br>
       card.addEventListener('mouseleave', () => {
         card.style.transform = '';
       });
-    });
+    });
+
+    // ─── CHARACTER COUNTER FOR CONTACT MESSAGE ───────────────
+    const msgTextarea = document.getElementById('message');
+    const charCounter = document.getElementById('char-counter');
+    if (msgTextarea && charCounter) {
+      msgTextarea.addEventListener('input', () => {
+        const len = msgTextarea.value.length;
+        const max = msgTextarea.getAttribute('maxlength') || 600;
+        charCounter.textContent = `${len} / ${max} caractères`;
+        charCounter.classList.toggle('limit-near', len > max * 0.85 && len < max);
+        charCounter.classList.toggle('limit-reached', len >= max);
+      });
+    }
+
+    // ─── SERVICE CARD CLICK TO CONTACT FORM PREFILL ──────────
+    document.querySelectorAll('.service-card').forEach((card, index) => {
+      card.addEventListener('click', () => {
+        const pills = document.querySelectorAll('.service-pill');
+        if (pills[index]) {
+          pills.forEach(p => p.classList.remove('active'));
+          pills[index].classList.add('active');
+          const selService = document.getElementById('selected-service');
+          if (selService) selService.value = pills[index].dataset.value;
+        }
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ─── SCROLL INDICATOR CLICK ──────────────────────────────
+    const scrollInd = document.querySelector('.scroll-indicator');
+    if (scrollInd) {
+      scrollInd.addEventListener('click', () => {
+        const aboutSec = document.getElementById('about');
+        if (aboutSec) aboutSec.scrollIntoView({ behavior: 'smooth' });
+      });
+    }

@@ -154,8 +154,16 @@
       border-radius: 20px;
       transition: var(--transition);
       letter-spacing: 0.02em;
+      border: 1px solid transparent;
     }
-    nav a:hover, nav a.active { color: var(--white); background: rgba(128,128,200,0.1); }
+    nav a:hover { color: var(--white); background: rgba(0,229,255,0.08); border-color: rgba(0,229,255,0.2); }
+    nav a.active {
+      color: var(--accent);
+      background: rgba(0,229,255,0.12);
+      border-color: rgba(0,229,255,0.35);
+      box-shadow: 0 0 12px rgba(0,229,255,0.15);
+      font-weight: 600;
+    }
 
     /* THEME TOGGLE */
     #theme-toggle {
@@ -2103,5 +2111,58 @@
       .terminal-section, .process-section, .devis-section, .faq-section { padding: 60px 20px; }
       .terminal-quick-actions { display: none; }
     }
+
+    /* ── UI / UX ENHANCEMENTS ── */
+
+    /* Form Inputs Focus Ring & Validation */
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--accent) !important;
+      box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.25) !important;
+    }
+    .char-count-bar {
+      display: flex; justify-content: flex-end; margin-top: 6px;
+    }
+    #char-counter {
+      font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);
+    }
+    #char-counter.limit-near { color: #f59e0b; }
+    #char-counter.limit-reached { color: #f43f5e; font-weight: 600; }
+
+    /* Service Card Interactive Hover & Arrow */
+    .service-card {
+      cursor: pointer; position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0; transition: var(--transition);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card:hover .service-arrow {
+      color: var(--accent); transform: translateX(6px);
+    }
+    .service-arrow { transition: var(--transition); }
+
+    /* Scroll Indicator Cursor Pointer */
+    .scroll-indicator { cursor: pointer; }
+    .scroll-indicator:hover span { color: var(--accent); }
+
+    /* Floating WhatsApp FAB Pulse */
+    #whatsapp-fab {
+      animation: fabPulse 2.5s infinite;
+    }
+    @keyframes fabPulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+      70% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* Back-to-Top Button Glow */
+    #back-top:hover {
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+      background: var(--accent); color: #000;
+    }
+
 
   
