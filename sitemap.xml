@@ -1,48 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+  
+  <!-- Page Principale / Accueil -->
   <url>
     <loc>https://gregoir30.github.io/OpenTech_Flow/</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr-TG" href="https://gregoir30.github.io/OpenTech_Flow/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gregoir30.github.io/OpenTech_Flow/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gregoir30.github.io/OpenTech_Flow/"/>
+    <image:image>
+      <image:loc>https://gregoir30.github.io/OpenTech_Flow/asset/images/my_profile.png</image:loc>
+      <image:title>Grégoir SABA — Expert Cybersécurité et Développeur Full Stack Web &amp; Mobile</image:title>
+      <image:caption>Portrait professionnel de Grégoir SABA, fondateur d'OpenTech Flow à Lomé, Togo</image:caption>
+    </image:image>
   </url>
+
+  <!-- Section Portfolio & Réalisations -->
+  <url>
+    <loc>https://gregoir30.github.io/OpenTech_Flow/#portfolio</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://gregoir30.github.io/OpenTech_Flow/asset/img/portfolio/e-commerce.png</image:loc>
+      <image:title>Plateforme E-Commerce locale avec intégration T-Money et Flooz</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gregoir30.github.io/OpenTech_Flow/asset/img/portfolio/netflix.png</image:loc>
+      <image:title>Application Plateforme Streaming VOD sécurisée</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gregoir30.github.io/OpenTech_Flow/asset/img/portfolio/business%20connect.png</image:loc>
+      <image:title>Portail B2B Business Connect Togo - Chine</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gregoir30.github.io/OpenTech_Flow/asset/img/portfolio/ettiam.png</image:loc>
+      <image:title>Site institutionnel d'ingénierie et BTP Ettiam</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gregoir30.github.io/OpenTech_Flow/asset/img/portfolio/innove-corp.png</image:loc>
+      <image:title>Plateforme de services d'ingénierie Innove-Corp</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gregoir30.github.io/OpenTech_Flow/asset/img/portfolio/s%C3%A9curit%C3%A9.png</image:loc>
+      <image:title>Hardening et sécurisation de serveur Linux UFW et Fail2ban</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gregoir30.github.io/OpenTech_Flow/asset/img/portfolio/r%C3%A9seau.png</image:loc>
+      <image:title>Analyse de trafic et détection d'intrusion réseau Wireshark</image:title>
+    </image:image>
+  </url>
+
+  <!-- Section Services & Offres -->
+  <url>
+    <loc>https://gregoir30.github.io/OpenTech_Flow/#services</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Simulateur Devis Express -->
+  <url>
+    <loc>https://gregoir30.github.io/OpenTech_Flow/#devis</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Contact & Prise de rendez-vous -->
+  <url>
+    <loc>https://gregoir30.github.io/OpenTech_Flow/#contact</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- À propos & Philosophie -->
   <url>
     <loc>https://gregoir30.github.io/OpenTech_Flow/#about</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Console Terminal Cyber Interactif -->
+  <url>
+    <loc>https://gregoir30.github.io/OpenTech_Flow/#terminal-section</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Compétences Techniques & Stack -->
+  <url>
+    <loc>https://gregoir30.github.io/OpenTech_Flow/#skills</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- CV & Certifications -->
+  <url>
+    <loc>https://gregoir30.github.io/OpenTech_Flow/#resume</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Processus d'Ingénierie -->
+  <url>
+    <loc>https://gregoir30.github.io/OpenTech_Flow/#process</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://gregoir30.github.io/OpenTech_Flow/#services</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://gregoir30.github.io/OpenTech_Flow/#devis</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://gregoir30.github.io/OpenTech_Flow/#portfolio</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
+
+  <!-- Foire Aux Questions (FAQ) -->
   <url>
     <loc>https://gregoir30.github.io/OpenTech_Flow/#faq</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://gregoir30.github.io/OpenTech_Flow/#contact</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+
 </urlset>

@@ -187,14 +187,15 @@
     // ─── TYPED ROLES ──────────────────────────────────────────
     const roles = ['Développeur Web', 'Flutter Developer', 'Ethical Hacker', 'Ingénieur Réseau', 'Security Engineer', 'Pentester'];
     let ri = 0, ci = 0, deleting = false;
-    const typedEl = document.getElementById('typed-role');
     function typeRole() {
+      const el = document.getElementById('typed-role');
+      if (!el) return;
       const word = roles[ri];
       if (!deleting) {
-        typedEl.textContent = word.slice(0, ++ci);
+        el.textContent = word.slice(0, ++ci);
         if (ci === word.length) { deleting = true; setTimeout(typeRole, 2000); return; }
       } else {
-        typedEl.textContent = word.slice(0, --ci);
+        el.textContent = word.slice(0, --ci);
         if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
       }
       setTimeout(typeRole, deleting ? 60 : 90);

@@ -1,0 +1,324 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://gregoir30.github.io/OpenTech_Flow/#website",
+      "url": "https://gregoir30.github.io/OpenTech_Flow/",
+      "name": "Grégoir SABA — OpenTech Flow",
+      "alternateName": "OpenTech Flow",
+      "description": "Plateforme d'ingénierie logicielle full stack, audit de cybersécurité offensive et architecture réseau par Grégoir SABA à Lomé, Togo.",
+      "publisher": {
+        "@id": "https://gregoir30.github.io/OpenTech_Flow/#person"
+      },
+      "inLanguage": "fr-TG",
+      "potentialAction": {
+        "@type": "ReadAction",
+        "target": "https://gregoir30.github.io/OpenTech_Flow/"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://gregoir30.github.io/OpenTech_Flow/#primaryimage",
+      "url": "https://gregoir30.github.io/OpenTech_Flow/asset/images/my_profile.png",
+      "contentUrl": "https://gregoir30.github.io/OpenTech_Flow/asset/images/my_profile.png",
+      "width": 1200,
+      "height": 630,
+      "caption": "Grégoir SABA — Expert Cybersécurité et Développeur Full Stack"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://gregoir30.github.io/OpenTech_Flow/#webpage",
+      "url": "https://gregoir30.github.io/OpenTech_Flow/",
+      "name": "Grégoir SABA — Expert Cybersécurité & Développeur Full Stack | OpenTech Flow (Lomé, Togo)",
+      "isPartOf": {
+        "@id": "https://gregoir30.github.io/OpenTech_Flow/#website"
+      },
+      "about": {
+        "@id": "https://gregoir30.github.io/OpenTech_Flow/#person"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://gregoir30.github.io/OpenTech_Flow/#primaryimage"
+      },
+      "breadcrumb": {
+        "@id": "https://gregoir30.github.io/OpenTech_Flow/#breadcrumb"
+      },
+      "datePublished": "2024-01-15T08:00:00+00:00",
+      "dateModified": "2026-09-28T00:30:00+00:00",
+      "inLanguage": "fr-TG"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://gregoir30.github.io/OpenTech_Flow/#person",
+      "name": "Grégoir SABA",
+      "givenName": "Grégoir",
+      "familyName": "SABA",
+      "alternateName": [
+        "Gregoir30",
+        "Gregoir SABA",
+        "GSABA"
+      ],
+      "gender": "Male",
+      "nationality": "Togolese",
+      "jobTitle": "Développeur Full Stack & Expert Cybersécurité",
+      "description": "Ingénieur Full Stack (Flutter, Laravel, React, Node.js) et consultant en Cybersécurité offensive (Pentesting OWASP, audit de code, hardening Linux/Cisco) basé à Lomé, Togo.",
+      "url": "https://gregoir30.github.io/OpenTech_Flow/",
+      "image": {
+        "@id": "https://gregoir30.github.io/OpenTech_Flow/#primaryimage"
+      },
+      "email": "contact@gregoirservices.tg",
+      "telephone": "+22890416117",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avédji Lycée JOURDAIN",
+        "addressLocality": "Lomé",
+        "addressRegion": "Maritime",
+        "postalCode": "00228",
+        "addressCountry": "TG"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Lucas University College"
+      },
+      "worksFor": {
+        "@id": "https://gregoir30.github.io/OpenTech_Flow/#organization"
+      },
+      "knowsAbout": [
+        "Développement Mobile Flutter & Dart (iOS, Android)",
+        "Architecture Backend Laravel, PHP & Node.js",
+        "Développement Frontend React & JavaScript Moderne",
+        "Cloud Firebase, Firestore & Cloud Functions",
+        "Cybersécurité Offensive & Ethical Hacking",
+        "Audit de Sécurité Web & API selon OWASP Top 10",
+        "Tests d'Intrusion (Pentesting avec Burp Suite, Nmap, Metasploit)",
+        "Configuration Réseau Cisco (Routage, Commutation, VLAN, ACL)",
+        "Pare-feu pfSense, OPNsense & VPN IPsec/OpenVPN",
+        "Administration & Hardening Serveur Linux (Ubuntu, Debian, Fail2ban, UFW)",
+        "DevSecOps & Conteneurisation Docker"
+      ],
+      "sameAs": [
+        "https://github.com/Gregoir30",
+        "https://www.linkedin.com/in/gregoirsaba/",
+        "https://twitter.com/GregoirSABA"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://gregoir30.github.io/OpenTech_Flow/#organization",
+      "name": "OpenTech Flow — Grégoir SABA",
+      "legalName": "OpenTech Flow",
+      "alternateName": "Grégoir Services",
+      "url": "https://gregoir30.github.io/OpenTech_Flow/",
+      "logo": "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png",
+      "image": {
+        "@id": "https://gregoir30.github.io/OpenTech_Flow/#primaryimage"
+      },
+      "founder": {
+        "@id": "https://gregoir30.github.io/OpenTech_Flow/#person"
+      },
+      "telephone": "+22890416117",
+      "email": "contact@gregoirservices.tg",
+      "priceRange": "$$",
+      "currenciesAccepted": "XOF, EUR, USD",
+      "paymentAccepted": "T-Money, Flooz, Virement bancaire, Carte bancaire, Crypto",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avédji Lycée JOURDAIN",
+        "addressLocality": "Lomé",
+        "addressRegion": "Maritime",
+        "postalCode": "00228",
+        "addressCountry": "TG"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 6.2056,
+        "longitude": 1.1813
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "19:00"
+        }
+      ],
+      "areaServed": [
+        "Togo",
+        "Bénin",
+        "Côte d'Ivoire",
+        "Sénégal",
+        "Ghana",
+        "Burkina Faso",
+        "Afrique de l'Ouest",
+        "France",
+        "International (Remote)"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "@id": "https://gregoir30.github.io/OpenTech_Flow/#offercatalog",
+        "name": "Services informatiques & cybersécurité OpenTech Flow",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Développement d'Applications Mobiles Cross-Platform Flutter",
+              "description": "Création d'applications mobiles iOS & Android avec Flutter et Firebase, intégration des passerelles de paiement locales T-Money et Flooz, synchronisation temps réel et UX soignée."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Développement Web Full Stack & Plateformes SaaS",
+              "description": "Conception d'applications web sur-mesure (Laravel, React, Node.js), APIs REST sécurisées, portails B2B, back-offices d'administration et plateformes e-commerce à haute disponibilité."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Audit de Cybersécurité & Pentesting OWASP",
+              "description": "Tests d'intrusion méthodologiques boîte noire/grise, recherche de failles (injections SQL, XSS, faiblesses d'authentification), scan d'infrastructures et rapport de remédiation priorisé."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Configuration Réseau d'Entreprise Cisco & pfSense",
+              "description": "Architecture réseau sécurisée, déploiement de pare-feu pfSense, interconnexion de sites par VPN IPsec/OpenVPN, segmentation VLAN et politique de sécurité d'accès."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Administration & Hardening de Serveurs Linux",
+              "description": "Durcissement d'OS Ubuntu/Debian, conteneurisation Docker sécurisée, configuration pare-feu UFW, protection anti-bruteforce Fail2ban, certificats SSL/TLS et monitoring."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://gregoir30.github.io/OpenTech_Flow/#faqpage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment se déroule un audit de cybersécurité avec vous ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'audit commence par un cadrage précis du périmètre (boîte noire, grise ou blanche). J'effectue ensuite des tests d'intrusion méthodologiques (OWASP Top 10, scans de vulnérabilités Nmap/Burp, analyse de configuration), puis je vous remets un rapport détaillé avec une grille de sévérité et les correctifs priorisés."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels sont vos délais pour développer une application mobile Flutter ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une application mobile standard (authentification, gestion de profil, base de données Firestore, notifications) nécessite généralement entre 2 et 4 semaines de développement. Pour des projets complexes avec paiement mobile et backend sur-mesure, le délai est ajusté selon le cahier des charges."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Travaillez-vous à distance (Remote) avec des clients hors du Togo ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolument ! Je travaille régulièrement avec des clients en Afrique de l'Ouest, en Europe et à l'international. Nous communiquons par Google Meet, WhatsApp, Slack ou Email avec un suivi transparent des jalons via Trello/GitHub."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment intégrez-vous les paiements mobiles locaux comme T-Money et Flooz ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "J'intègre les APIs sécurisées des passerelles de paiement locales (PayGate, CinetPay, FeexPay, Fedapay) permettant d'encaisser les transactions T-Money, Flooz ou Carte bancaire directement sur votre site ou application avec notifications webhooks sécurisées."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Proposez-vous une garantie et un contrat de maintenance après livraison ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, chaque projet livré bénéficie d'une garantie de correction de bugs gratuite de 30 jours. Par la suite, vous pouvez souscrire à un forfait de maintenance mensuelle incluant les mises à jour de sécurité, les sauvegardes automatiques et le monitoring serveur."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://gregoir30.github.io/OpenTech_Flow/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://gregoir30.github.io/OpenTech_Flow/#home"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "À propos",
+          "item": "https://gregoir30.github.io/OpenTech_Flow/#about"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Console Cyber",
+          "item": "https://gregoir30.github.io/OpenTech_Flow/#terminal-section"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Services",
+          "item": "https://gregoir30.github.io/OpenTech_Flow/#services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Processus",
+          "item": "https://gregoir30.github.io/OpenTech_Flow/#process"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Compétences",
+          "item": "https://gregoir30.github.io/OpenTech_Flow/#skills"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Portfolio",
+          "item": "https://gregoir30.github.io/OpenTech_Flow/#portfolio"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Devis Express",
+          "item": "https://gregoir30.github.io/OpenTech_Flow/#devis"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "FAQ",
+          "item": "https://gregoir30.github.io/OpenTech_Flow/#faq"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "Contact",
+          "item": "https://gregoir30.github.io/OpenTech_Flow/#contact"
+        }
+      ]
+    }
+  ]
+}

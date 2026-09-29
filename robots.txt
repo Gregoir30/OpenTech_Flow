@@ -1,7 +1,44 @@
+# robots.txt for OpenTech Flow — Grégoir SABA (https://gregoir30.github.io/OpenTech_Flow/)
+# Enterprise GAFAM Standard Crawling & Generative Engine Optimization (GEO)
+
 User-agent: *
 Allow: /
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /scratch/
 
-# Allow AI crawlers for Generative Engine Optimization (GEO)
+# Major Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Generative AI & LLM Search Crawlers (SearchGPT, Gemini, Perplexity, Copilot, Claude)
 User-agent: GPTBot
 Allow: /
 
@@ -11,13 +48,36 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Applebot
-Allow: /
-
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+# XML Sitemap
 Sitemap: https://gregoir30.github.io/OpenTech_Flow/sitemap.xml
+Host: https://gregoir30.github.io/OpenTech_Flow/
