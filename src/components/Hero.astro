@@ -2,8 +2,13 @@
 import { withBase } from '../utils/urls';
 ---
 
-<!-- HERO SECTION SANS DÉPENDANCES LOURDES -->
+<!-- HERO SECTION AVEC VIDÉO LOCALE -->
 <section id="home" class="hero hero-kingfisher is-revealed" aria-label="Introduction">
+  <!-- Background Video (fichier local optimisé) -->
+  <video id="hero-video" class="hero-video" autoplay loop muted playsinline preload="metadata">
+    <source src={withBase("asset/video/hero.mp4")} type="video/mp4" />
+  </video>
+
   <!-- Giant word behind photo with mix-blend-mode -->
   <div class="hero-word" aria-hidden="true">Open<em>Tech</em><br />Flow</div>
 
@@ -98,3 +103,25 @@ import { withBase } from '../utils/urls';
     </footer>
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    const video = document.getElementById('hero-video');
+    if (video) {
+      video.muted = true;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Relance dès la première interaction si la politique du navigateur restreint le démarrage
+          const startPlayback = () => {
+            video.play();
+            window.removeEventListener('click', startPlayback);
+            window.removeEventListener('touchstart', startPlayback);
+          };
+          window.addEventListener('click', startPlayback, { once: true });
+          window.addEventListener('touchstart', startPlayback, { once: true });
+        });
+      }
+    }
+  })();
+</script>
