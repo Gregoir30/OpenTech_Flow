@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = "Grégoir SABA | Développeur Web & Applications métier à Lomé",
-  description = "Développement web et applications métier à Lomé : Grégoir SABA accompagne entreprises, organisations et entrepreneurs avec OpenTech Flow."
+  title = "Grégoir SABA | Développeur Web & Applications Métier à Lomé, Togo",
+  description = "Conception de sites web professionnels et d'applications métier sur mesure à Lomé, Togo. Grégoir SABA (OpenTech Flow) développe des solutions numériques fiables, ergonomiques et sécurisées."
 } = Astro.props;
 
 const siteUrl = "https://gregoir30.github.io/OpenTech_Flow/";
@@ -101,15 +101,14 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
   <link rel="dns-prefetch" href="//fonts.googleapis.com" />
   <link rel="dns-prefetch" href="//fonts.gstatic.com" />
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
-  <link rel="dns-prefetch" href="//thinkingods.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preload" as="image" href={withBase("asset/images/my_profile.png")} fetchpriority="high" />
 
-  <!-- Google Fonts & Icons -->
+  <!-- Google Fonts épurées & Icons (3 polices ciblées pour performance optimale) -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
@@ -117,7 +116,7 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
   <!-- Base Custom Design System Stylesheet -->
   <link rel="stylesheet" href={withBase("asset/style.css?v=20261002_clean_noradiant")} />
 
-  <!-- Enterprise Knowledge Graph JSON-LD Schema -->
+  <!-- Enterprise Knowledge Graph JSON-LD Schema (Services sans bureau physique public) -->
   <script type="application/ld+json" is:inline set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
@@ -127,7 +126,7 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
         "url": "https://gregoir30.github.io/OpenTech_Flow/",
         "name": "Grégoir SABA — OpenTech Flow",
         "alternateName": "OpenTech Flow",
-        "description": "Plateforme d'ingénierie logicielle full stack, audit de cybersécurité offensive et architecture réseau par Grégoir SABA à Lomé, Togo.",
+        "description": "Conception de sites web professionnels, d'applications métier sur mesure et solutions numériques par Grégoir SABA (OpenTech Flow) à Lomé, Togo.",
         "publisher": { "@id": "https://gregoir30.github.io/OpenTech_Flow/#person" },
         "inLanguage": "fr-TG",
         "potentialAction": {
@@ -148,8 +147,8 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
         "@type": "WebPage",
         "@id": "https://gregoir30.github.io/OpenTech_Flow/#webpage",
         "url": "https://gregoir30.github.io/OpenTech_Flow/",
-        "name": "Grégoir SABA | Développeur Web & Applications métier à Lomé",
-        "description": "Développement web et applications métier à Lomé : Grégoir SABA accompagne entreprises, organisations et entrepreneurs avec OpenTech Flow.",
+        "name": "Grégoir SABA | Développeur Web & Applications Métier à Lomé, Togo",
+        "description": "Conception de sites web professionnels et d'applications métier sur mesure à Lomé, Togo. Grégoir SABA (OpenTech Flow) développe vos solutions numériques avec rigueur et sécurité.",
         "isPartOf": { "@id": "https://gregoir30.github.io/OpenTech_Flow/#website" },
         "about": { "@id": "https://gregoir30.github.io/OpenTech_Flow/#person" },
         "primaryImageOfPage": { "@id": "https://gregoir30.github.io/OpenTech_Flow/#primaryimage" },
@@ -175,10 +174,8 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
         "telephone": "+22890416117",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Avédji Lycée JOURDAIN",
           "addressLocality": "Lomé",
           "addressRegion": "Maritime",
-          "postalCode": "00228",
           "addressCountry": "TG"
         },
         "alumniOf": {
@@ -187,17 +184,13 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
         },
         "worksFor": { "@id": "https://gregoir30.github.io/OpenTech_Flow/#organization" },
         "knowsAbout": [
+          "Développement Web Full Stack (Laravel, PHP, Node.js, React)",
+          "Conception d'Applications Métier & Back-offices sur mesure",
           "Développement Mobile Flutter & Dart (iOS, Android)",
-          "Architecture Backend Laravel, PHP & Node.js",
-          "Développement Frontend React & JavaScript Moderne",
-          "Cloud Firebase, Firestore & Cloud Functions",
-          "Cybersécurité Offensive & Ethical Hacking",
-          "Audit de Sécurité Web & API selon OWASP Top 10",
-          "Tests d'Intrusion (Pentesting avec Burp Suite, Nmap, Metasploit)",
-          "Configuration Réseau Cisco (Routage, Commutation, VLAN, ACL)",
-          "Pare-feu pfSense, OPNsense & VPN IPsec/OpenVPN",
-          "Administration & Hardening Serveur Linux (Ubuntu, Debian, Fail2ban, UFW)",
-          "DevSecOps & Conteneurisation Docker"
+          "Bases de données relationnelles & Cloud Firebase",
+          "Sécurisation Applicative & Bonnes Pratiques OWASP",
+          "Administration & Hardening Serveurs Linux (Ubuntu, Debian, Fail2ban, UFW)",
+          "Architecture Réseau Sécurisée (pfSense, VPN, Cisco)"
         ],
         "sameAs": [
           "https://github.com/Gregoir30",
@@ -217,51 +210,34 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
         "founder": { "@id": "https://gregoir30.github.io/OpenTech_Flow/#person" },
         "telephone": "+22890416117",
         "email": "contact@gregoirservices.tg",
-        "priceRange": "$$",
-        "currenciesAccepted": "XOF, EUR, USD",
-        "paymentAccepted": "T-Money, Flooz, Virement bancaire, Carte bancaire, Crypto",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Avédji Lycée JOURDAIN",
           "addressLocality": "Lomé",
           "addressRegion": "Maritime",
-          "postalCode": "00228",
           "addressCountry": "TG"
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 6.2056,
-          "longitude": 1.1813
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            "opens": "08:00",
-            "closes": "19:00"
-          }
-        ],
         "areaServed": [
-          "Togo",
-          "Bénin",
-          "Côte d'Ivoire",
-          "Sénégal",
-          "Ghana",
-          "Burkina Faso",
-          "Afrique de l'Ouest",
-          "France",
-          "International (Remote)"
+          "Lomé, Togo",
+          "À distance / International (Remote)"
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "@id": "https://gregoir30.github.io/OpenTech_Flow/#offercatalog",
-          "name": "Services informatiques & cybersécurité OpenTech Flow",
+          "name": "Services de développement web, mobile & solutions métier OpenTech Flow",
           "itemListElement": [
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Développement d'Applications Mobiles Cross-Platform Flutter",
+                "name": "Développement Web & Applications Métier",
+                "description": "Conception d'applications web sur-mesure (Laravel, React, Node.js), APIs REST sécurisées, portails B2B, back-offices d'administration et plateformes e-commerce fiables."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Développement d'Applications Mobiles Flutter",
                 "description": "Création d'applications mobiles iOS & Android avec Flutter et Firebase, intégration des passerelles de paiement locales T-Money et Flooz, synchronisation temps réel et UX soignée."
               }
             },
@@ -269,32 +245,8 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Développement Web Full Stack & Plateformes SaaS",
-                "description": "Conception d'applications web sur-mesure (Laravel, React, Node.js), APIs REST sécurisées, portails B2B, back-offices d'administration et plateformes e-commerce à haute disponibilité."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Audit de Cybersécurité & Pentesting OWASP",
-                "description": "Tests d'intrusion méthodologiques boîte noire/grise, recherche de failles (injections SQL, XSS, faiblesses d'authentification), scan d'infrastructures et rapport de remédiation priorisé."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Configuration Réseau d'Entreprise Cisco & pfSense",
-                "description": "Architecture réseau sécurisée, déploiement de pare-feu pfSense, interconnexion de sites par VPN IPsec/OpenVPN, segmentation VLAN et politique de sécurité d'accès."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Administration & Hardening de Serveurs Linux",
-                "description": "Durcissement d'OS Ubuntu/Debian, conteneurisation Docker sécurisée, configuration pare-feu UFW, protection anti-bruteforce Fail2ban, certificats SSL/TLS et monitoring."
+                "name": "Sécurisation Applicative & Hardening Système",
+                "description": "Audits de vulnérabilités web selon les recommandations OWASP, durcissement de serveurs Linux (UFW, Fail2ban, SSL) et déploiement d'architectures fiables."
               }
             }
           ]

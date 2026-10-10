@@ -2,24 +2,19 @@
 import { withBase } from '../utils/urls';
 ---
 
-<!-- KINGFISHER HERO SECTION -->
-<section id="home" class="hero hero-kingfisher" aria-label="Introduction">
-  <video id="hero-video" class="hero-video" muted playsinline preload="auto">
-    <source src={withBase("asset/video/hero.mp4")} type="video/mp4" />
-    <source src="https://thinkingods.com/demos/kingfisher-hero/hero.mp4" type="video/mp4" />
-  </video>
-
-  <!-- Giant word behind the bird with mix-blend-mode: darken -->
+<!-- HERO SECTION SANS DÉPENDANCES LOURDES -->
+<section id="home" class="hero hero-kingfisher is-revealed" aria-label="Introduction">
+  <!-- Giant word behind photo with mix-blend-mode -->
   <div class="hero-word" aria-hidden="true">Open<em>Tech</em><br />Flow</div>
 
-  <!-- Legibility Overlay -->
+  <!-- Subtle Cyber Grid & Mesh Overlay -->
   <div class="hero-overlay" aria-hidden="true"></div>
 
   <!-- Interactive UI Layer -->
   <div class="hero-ui">
     <!-- Center Stage Grid -->
     <div class="hero-main">
-      <!-- Left Copy: pushed down to clear giant word -->
+      <!-- Left Copy -->
       <div class="hero-copy">
         <div class="hero-badge-wrap rv" style="--d: 1;">
           <div class="kingfisher-badge">
@@ -82,88 +77,24 @@ import { withBase } from '../utils/urls';
     </div>
 
     <!-- Bottom Strip -->
-    <footer class="hero-strip rv" style="--d: 8;">
+    <footer class="hero-strip rv" style="--d: 6;">
       <div class="strip-species">
-        <span style="display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:700;">
-          <i class="bi bi-camera-reels-fill"></i> 4K UHD
+        <span style="display:inline-flex;align-items:center;gap:6px;color:var(--accent3);font-weight:700;">
+          <i class="bi bi-check-circle-fill"></i> DISPONIBLE
         </span>
-        <span class="species-latin">KINGFISHER · CINÉMATIQUE</span>
+        <span class="species-latin">WEB · MOBILE · SOLUTIONS MÉTIER</span>
         <span style="opacity:0.6;">· OpenTech Flow</span>
       </div>
 
       <div class="strip-location">
-        LOMÉ · 6.2056° N — TOGO
+        LOMÉ · TOGO &amp; EN MISSION À DISTANCE
       </div>
 
       <div class="strip-actions">
-        <button class="btn-replay" id="hero-replay-btn" aria-label="Rejouer la séquence vidéo" title="Rejouer la vidéo haute définition">
-          <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-            <path d="M2.5 8C2.5 4.96243 4.96243 2.5 8 2.5C10.4287 2.5 12.4925 4.07436 13.2081 6.25M13.5 2V6.5H9"
-              stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M13.5 8C13.5 11.0376 11.0376 13.5 8 13.5C5.5713 13.5 3.50754 11.9256 2.79193 9.75M2.5 14V9.5H7"
-              stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          <span>Rejouer</span>
-        </button>
-        <a href="#about" class="hero-scroll-btn" aria-label="Défiler vers À propos">
+        <a href="#about" class="hero-scroll-btn" aria-label="Défiler vers la section À propos" title="En savoir plus">
           <i class="bi bi-chevron-down"></i>
         </a>
       </div>
     </footer>
   </div>
 </section>
-
-<script is:inline>
-  (function () {
-    const REVEAL_AT = 4.3;
-    const video = document.getElementById('hero-video');
-    const hero = document.getElementById('home');
-    const replayBtn = document.getElementById('hero-replay-btn');
-    let isRevealed = false;
-
-    function triggerReveal() {
-      if (isRevealed || !hero) return;
-      isRevealed = true;
-      hero.classList.add('is-revealed');
-    }
-
-    function replayHero() {
-      if (!video || !hero) return;
-      isRevealed = false;
-      hero.classList.remove('is-revealed');
-      video.currentTime = 0;
-      const p = video.play();
-      if (p !== undefined) {
-        p.catch(() => triggerReveal());
-      }
-    }
-
-    if (replayBtn) {
-      replayBtn.addEventListener('click', replayHero);
-    }
-
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) {
-      if (video) video.currentTime = REVEAL_AT;
-      triggerReveal();
-      return;
-    }
-
-    if (video) {
-      video.addEventListener('timeupdate', () => {
-        if (video.currentTime >= REVEAL_AT && !isRevealed) {
-          triggerReveal();
-        }
-      });
-
-      video.addEventListener('ended', triggerReveal);
-      video.addEventListener('error', triggerReveal);
-      setTimeout(triggerReveal, 5500);
-
-      const playAttempt = video.play();
-      if (playAttempt !== undefined) {
-        playAttempt.catch(() => triggerReveal());
-      }
-    }
-  })();
-</script>
