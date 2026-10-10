@@ -1,0 +1,47 @@
+---
+const faqItems = [
+  {
+    question: "Comment se déroule un audit de cybersécurité avec vous ?",
+    answer: "L'audit commence par un cadrage précis du périmètre (boîte noire, grise ou blanche). J'effectue ensuite des tests d'intrusion méthodologiques (OWASP Top 10, scans de vulnérabilités Nmap/Burp, analyse de configuration), puis je vous remets un rapport détaillé avec une grille de sévérité et les correctifs priorisés."
+  },
+  {
+    question: "Quels sont vos délais pour développer une application mobile Flutter ?",
+    answer: "Une application mobile standard (authentification, gestion de profil, base de données Firestore, notifications) nécessite généralement entre 2 et 4 semaines de développement. Pour des projets complexes avec paiement mobile et backend sur-mesure, le délai est ajusté selon le cahier des charges."
+  },
+  {
+    question: "Travaillez-vous à distance (Remote) avec des clients hors du Togo ?",
+    answer: "Absolument ! Je travaille régulièrement avec des clients en Afrique de l'Ouest, en Europe et à l'international. Nous communiquons par Google Meet, WhatsApp, Slack ou Email avec un suivi transparent des jalons via Trello/GitHub."
+  },
+  {
+    question: "Comment intégrez-vous les paiements mobiles locaux comme T-Money et Flooz ?",
+    answer: "J'intègre les APIs sécurisées des passerelles de paiement locales (PayGate, CinetPay, FeexPay, Fedapay) permettant d'encaisser les transactions T-Money, Flooz ou Carte bancaire directement sur votre site ou application avec notifications webhooks sécurisées."
+  },
+  {
+    question: "Proposez-vous une garantie et un contrat de maintenance après livraison ?",
+    answer: "Oui, chaque projet livré bénéficie d'une garantie de correction de bugs gratuite de 30 jours. Par la suite, vous pouvez souscrire à un forfait de maintenance mensuelle incluant les mises à jour de sécurité, les sauvegardes automatiques et le monitoring serveur."
+  }
+];
+---
+
+<!-- FAQ SECTION -->
+<section id="faq" class="faq-section" aria-label="Foire aux questions">
+  <div class="container">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Questions fréquentes</h2>
+    <p class="section-desc">Des réponses claires à vos interrogations avant de démarrer un projet ensemble.</p>
+
+    <div class="faq-accordion fade-in">
+      {faqItems.map((item) => (
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span><i class="bi bi-question-circle-fill"></i> {item.question}</span>
+            <i class="bi bi-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>{item.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

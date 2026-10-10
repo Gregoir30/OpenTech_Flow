@@ -1,0 +1,118 @@
+---
+import ProjectCard from './ProjectCard.astro';
+
+const projects = [
+  {
+    category: 'web' as const,
+    categoryLabel: 'Développement Web',
+    title: 'Plateforme E-Commerce Locale',
+    description: 'Site de vente en ligne avec intégration T-Money/Flooz et gestion des stocks.',
+    image: 'asset/img/portfolio/e-commerce.png',
+    alt: 'Plateforme E-Commerce locale avec T-Money'
+  },
+  {
+    category: 'web' as const,
+    categoryLabel: 'Développement Web',
+    title: 'Plateforme Streaming VOD',
+    description: 'Clone fonctionnel de Netflix avec gestion des abonnements et player vidéo personnalisé.',
+    image: 'asset/img/portfolio/netflix.png',
+    previewImage: 'asset/img/portfolio/netfix1.png',
+    alt: 'Plateforme Streaming VOD clone Netflix'
+  },
+  {
+    category: 'web' as const,
+    categoryLabel: 'Développement Web',
+    title: 'Business Connect',
+    description: 'Portail B2B facilitant l\'importation de marchandises depuis la Chine vers le Togo.',
+    image: 'asset/img/portfolio/business connect.png',
+    externalLink: 'https://business-connect.pro',
+    alt: 'Business Connect portail B2B Togo Chine'
+  },
+  {
+    category: 'web' as const,
+    categoryLabel: 'Développement Web',
+    title: 'Ettiam BTP',
+    description: 'Site vitrine institutionnel pour entreprise transcontinentale de BTP et maintenance.',
+    image: 'asset/img/portfolio/ettiam.png',
+    externalLink: 'https://ettiam.net',
+    alt: 'Ettiam BTP site institutionnel'
+  },
+  {
+    category: 'web' as const,
+    categoryLabel: 'Développement Web',
+    title: 'Innove-Corp',
+    description: 'Plateforme de services d\'ingénierie et d\'architecture avec portfolio dynamique.',
+    image: 'asset/img/portfolio/innove-corp.png',
+    externalLink: 'https://innove-corp.com',
+    alt: 'Innove-Corp services ingénierie'
+  },
+  {
+    category: 'web' as const,
+    categoryLabel: 'Développement Web',
+    title: 'Portail Universitaire',
+    description: 'Intranet académique pour la gestion des notes, emplois du temps et inscriptions.',
+    image: 'asset/img/portfolio/university.png',
+    alt: 'Portail universitaire gestion notes'
+  },
+  {
+    category: 'network' as const,
+    categoryLabel: 'Réseau & Sécurité',
+    title: 'Wireshark Analysis',
+    description: 'Analyse de paquets réseaux pour identifier protocoles non sécurisés et intrusions.',
+    image: 'asset/img/portfolio/réseau.png',
+    alt: 'Analyse Wireshark réseau intrusion'
+  },
+  {
+    category: 'network' as const,
+    categoryLabel: 'Réseau & Sécurité',
+    title: 'Hardening Serveur Linux',
+    description: 'Mise en place UFW, configuration SSH sécurisée et monitoring Fail2Ban pour SaaS.',
+    image: 'asset/img/portfolio/sécurité.png',
+    alt: 'Hardening serveur Linux UFW Fail2Ban'
+  },
+  {
+    category: 'misc' as const,
+    categoryLabel: 'Projet Innovant',
+    title: 'Project Manager Tool',
+    description: 'Application web de gestion de tâches type Trello avec assignation de rôles et chat.',
+    image: 'asset/img/portfolio/project.png',
+    alt: 'Project Manager Tool gestion tâches'
+  },
+  {
+    category: 'misc' as const,
+    categoryLabel: 'Projet Innovant',
+    title: 'PHP Adventure',
+    description: 'Serious Game pour initier les débutants à la programmation orientée objet en PHP.',
+    image: 'asset/img/portfolio/php-adventure.png',
+    alt: 'PHP Adventure jeu éducatif programmation'
+  },
+  {
+    category: 'misc' as const,
+    categoryLabel: 'Projet Innovant',
+    title: 'SQL Query Builder',
+    description: 'Interface graphique pour générer et tester des requêtes complexes sur Oracle sans code.',
+    image: 'asset/img/portfolio/request_sql.png',
+    alt: 'SQL Query Builder Oracle interface graphique'
+  }
+];
+---
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="portfolio-section" aria-label="Portfolio">
+  <div class="container">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Mes réalisations</h2>
+    <p class="section-desc">Une sélection de projets où la technique rencontre les besoins utilisateurs réels.</p>
+    <ul class="portfolio-filters" role="tablist">
+      <li data-filter="*" class="active" role="tab">Tous</li>
+      <li data-filter="web" role="tab">Développement Web</li>
+      <li data-filter="network" role="tab">Réseau &amp; Sécurité</li>
+      <li data-filter="misc" role="tab">Projets Innovants</li>
+    </ul>
+    <div class="portfolio-grid" id="portfolio-grid">
+      {projects.map((project) => (
+        <ProjectCard {...project} />
+      ))}
+    </div>
+  </div>
+</section>

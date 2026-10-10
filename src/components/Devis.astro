@@ -1,0 +1,102 @@
+---
+---
+
+<!-- DEVIS EXPRESS -->
+<section id="devis" class="devis-section" aria-label="Calculateur de Devis Express">
+  <div class="container">
+    <div class="section-label">Estimation Express</div>
+    <h2 class="section-title">Configurez votre projet en 1 min</h2>
+    <p class="section-desc">Sélectionnez vos besoins pour obtenir une estimation instantanée de coût et de délai,
+      puis envoyez-la directement sur WhatsApp.</p>
+
+    <div class="devis-wrapper fade-in">
+      <div class="devis-options">
+        <div class="devis-group">
+          <label class="devis-label"><i class="bi bi-layers-fill"></i> Type de projet principal</label>
+          <div class="devis-grid-options" id="devis-type-group">
+            <button type="button" class="devis-opt active" data-type="web" data-base="150000" data-days="7">
+              <i class="bi bi-globe"></i>
+              <strong>Site / App Web</strong>
+              <small>Laravel, React, Node.js</small>
+            </button>
+            <button type="button" class="devis-opt" data-type="mobile" data-base="250000" data-days="14">
+              <i class="bi bi-phone"></i>
+              <strong>App Mobile Flutter</strong>
+              <small>iOS &amp; Android Cross-Platform</small>
+            </button>
+            <button type="button" class="devis-opt" data-type="audit" data-base="180000" data-days="5">
+              <i class="bi bi-shield-check"></i>
+              <strong>Audit Pentest OWASP</strong>
+              <small>Test d'intrusion &amp; Rapport</small>
+            </button>
+            <button type="button" class="devis-opt" data-type="network" data-base="120000" data-days="4">
+              <i class="bi bi-router"></i>
+              <strong>Config Réseau / Server</strong>
+              <small>Linux, Cisco, pfSense, VPN</small>
+            </button>
+          </div>
+        </div>
+
+        <div class="devis-group">
+          <label class="devis-label"><i class="bi bi-puzzle-fill"></i> Fonctionnalités &amp; Options sur-mesure</label>
+          <div class="devis-checkboxes">
+            <label class="devis-check">
+              <input type="checkbox" class="devis-addon" data-price="50000" data-add-days="3"
+                value="Paiement Mobile (T-Money/Flooz/Stripe)" />
+              <span class="check-box"></span>
+              <span>Intégration Paiement Mobile (T-Money / Flooz)</span>
+            </label>
+            <label class="devis-check">
+              <input type="checkbox" class="devis-addon" data-price="40000" data-add-days="2"
+                value="Authentification & Roles Firebase/OAuth" />
+              <span class="check-box"></span>
+              <span>Auth multi-rôles &amp; Cloud Database (Firebase)</span>
+            </label>
+            <label class="devis-check">
+              <input type="checkbox" class="devis-addon" data-price="35000" data-add-days="2"
+                value="Hardening Sécurité OWASP & Firewall" />
+              <span class="check-box"></span>
+              <span>Hardening Sécurité Avancé (UFW, Fail2Ban, SSL)</span>
+            </label>
+            <label class="devis-check">
+              <input type="checkbox" class="devis-addon" data-price="30000" data-add-days="2"
+                value="Design Dark/Light & Animations" />
+              <span class="check-box"></span>
+              <span>Design UI/UX Premium &amp; Micro-animations</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="devis-group">
+          <label class="devis-label"><i class="bi bi-clock-history"></i> Niveau d'urgence</label>
+          <div class="devis-radio-group">
+            <label class="devis-radio active">
+              <input type="radio" name="devis-urgency" value="Standard" data-mult="1" checked />
+              <span>Standard (Délai normal)</span>
+            </label>
+            <label class="devis-radio">
+              <input type="radio" name="devis-urgency" value="Prioritaire (Express)" data-mult="1.25" />
+              <span>Prioritaire Express (+25% rapidité renforcée)</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="devis-summary-panel">
+        <div class="summary-badge"><i class="bi bi-calculator"></i> Estimation en direct</div>
+        <div class="summary-price-box">
+          <small>Budget estimé à partir de</small>
+          <div class="price-val" id="devis-price-display">150 000 FCFA</div>
+          <span class="price-sub">~(230 € / 250 $)</span>
+        </div>
+        <div class="summary-delay-box">
+          <i class="bi bi-calendar-check"></i> Délai estimé : <strong id="devis-delay-display">7 à 10 jours ouvrés</strong>
+        </div>
+        <p class="summary-note">Cette estimation indicative varie selon la spécificité exacte de vos spécifications techniques.</p>
+        <button type="button" class="btn-primary devis-send-btn" onclick="sendDevisWhatsApp()">
+          <i class="bi bi-whatsapp"></i> Valider &amp; Envoyer sur WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,55 @@
+---
+import ServiceCard from './ServiceCard.astro';
+
+const services = [
+  {
+    number: "01",
+    icon: "bi-globe2",
+    title: "Développement Web",
+    description: "Création de sites et d'applications web modernes — E-commerce, Vitrine, SaaS, Portails — avec PHP/Laravel, JavaScript (React, Node.js) et les meilleures pratiques OWASP intégrées dès la conception.",
+    tags: ["Laravel", "React", "Node.js", "MySQL"]
+  },
+  {
+    number: "02",
+    icon: "bi-phone-fill",
+    title: "Développement Mobile",
+    description: "Conception d'applications mobiles cross-platform iOS & Android avec <strong>Flutter & Dart</strong>, intégration <strong>Firebase</strong> (Auth, Firestore, Cloud Storage, Notifications push) pour des apps performantes et scalables.",
+    tags: ["Flutter", "Dart", "Firebase", "Android / iOS"]
+  },
+  {
+    number: "03",
+    icon: "bi-shield-lock-fill",
+    title: "Audit & Pentesting",
+    description: "Tests d'intrusion éthiques (OWASP Top 10) pour identifier les vulnérabilités de vos systèmes avant les attaquants. Rapport détaillé et roadmap de remédiation priorisée.",
+    tags: ["OWASP", "Kali Linux", "Burp Suite", "Nmap"]
+  },
+  {
+    number: "04",
+    icon: "bi-diagram-3-fill",
+    title: "Configuration Réseau",
+    description: "Installation, configuration et sécurisation d'équipements réseau : routeurs, switches, points d'accès Wi-Fi, pare-feux (pfSense, UFW), VPN et VLAN. Câblage structuré et plan d'adressage IP.",
+    tags: ["Cisco", "pfSense", "VPN", "VLAN"]
+  },
+  {
+    number: "05",
+    icon: "bi-server",
+    title: "Administration Serveur",
+    description: "Déploiement et maintenance de serveurs Linux (Debian/Ubuntu), mise en place de monitoring (Fail2Ban, Zabbix), configuration Apache/Nginx, et hardening complet pour une disponibilité maximale.",
+    tags: ["Linux", "Nginx", "Docker", "Fail2Ban"]
+  }
+];
+---
+
+<!-- SERVICES -->
+<section id="services" class="services" aria-label="Mes services">
+  <div class="container">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">Ce que je fais</h2>
+    <p class="section-desc">Une offre complète alliant développement web & mobile sur-mesure, cybersécurité et infrastructure réseau.</p>
+    <div class="services-grid">
+      {services.map((service) => (
+        <ServiceCard {...service} />
+      ))}
+    </div>
+  </div>
+</section>

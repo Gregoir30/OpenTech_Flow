@@ -1,0 +1,53 @@
+---
+---
+
+<!-- MODAL PROJET DETAILS -->
+<div class="project-modal" id="project-modal" aria-hidden="true" role="dialog">
+  <div class="modal-backdrop" onclick="closeProjectModal()"></div>
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeProjectModal()" aria-label="Fermer la modal"><i
+        class="bi bi-x-lg"></i></button>
+    <div class="modal-grid">
+      <div class="modal-img-wrap">
+        <img id="modal-img" src="" alt="Aperçu du projet" />
+      </div>
+      <div class="modal-info">
+        <span class="modal-cat" id="modal-cat">Développement Web</span>
+        <h3 id="modal-title">Nom du Projet</h3>
+        <p id="modal-desc">Description détaillée de la réalisation, architecture mise en place et technologies exploitées.</p>
+        <div class="modal-tags" id="modal-tags"></div>
+        <div class="modal-actions">
+          <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <i class="bi bi-box-arrow-up-right"></i> Démo en direct
+          </a>
+          <button type="button" class="btn-outline" onclick="closeProjectModal()">
+            <i class="bi bi-x-circle"></i> Fermer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div id="toast-container" class="toast-container"></div>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-logo">Grégoir<span>.</span>SABA</div>
+    <p>© 2026 Grégoir SABA — Expert Cybersécurité &amp; Développeur Full Stack à Lomé, Togo.</p>
+    <p style="font-size:0.75rem;color:var(--text-dim);">Tous droits réservés.</p>
+  </div>
+</footer>
+
+<button id="back-top" aria-label="Retour en haut">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<!-- WhatsApp Floating Button -->
+<a id="whatsapp-fab"
+  href="https://wa.me/22890416117?text=Bonjour%20Gr%C3%A9goir%2C%20je%20souhaite%20discuter%20d%27un%20projet."
+  target="_blank" rel="noopener noreferrer" aria-label="Contacter Grégoir sur WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+  <span class="wa-tip">Discutons sur WhatsApp</span>
+</a>

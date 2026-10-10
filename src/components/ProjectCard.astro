@@ -1,0 +1,37 @@
+---
+import { withBase } from '../utils/urls';
+
+interface Props {
+  category: 'web' | 'network' | 'misc';
+  categoryLabel: string;
+  title: string;
+  description: string;
+  image: string;
+  previewImage?: string;
+  externalLink?: string;
+  alt: string;
+}
+
+const { category, categoryLabel, title, description, image, previewImage, externalLink, alt } = Astro.props;
+const resolvedImg = withBase(image);
+const resolvedPreview = withBase(previewImage || image);
+---
+
+<article class="portfolio-item fade-in" data-category={category}>
+  <div class="portfolio-thumb">
+    <img src={resolvedImg} alt={alt} loading="lazy" width="400" height="200" />
+    <div class="portfolio-overlay">
+      <a href={resolvedPreview} aria-label="Voir l'aperçu"><i class="bi bi-search"></i></a>
+      {externalLink && (
+        <a href={externalLink} target="_blank" rel="noopener noreferrer" aria-label="Visiter le site">
+          <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      )}
+    </div>
+  </div>
+  <div class="portfolio-meta">
+    <p class="portfolio-cat">{categoryLabel}</p>
+    <h4>{title}</h4>
+    <p>{description}</p>
+  </div>
+</article>

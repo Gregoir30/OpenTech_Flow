@@ -1,0 +1,112 @@
+---
+import { withBase } from '../utils/urls';
+---
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursor-follower"></div>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawer-overlay"></div>
+
+<!-- Mobile Drawer Nav -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile" aria-hidden="true">
+  <div class="drawer-head">
+    <a href="#home" class="drawer-logo" onclick="closeMobileNav()">Grégoir<span>.</span>SABA</a>
+    <button class="close-nav" id="close-nav" aria-label="Fermer le menu">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+  <div class="drawer-links">
+    <a href="#home" onclick="closeMobileNav()">
+      <span class="nav-icon"><i class="bi bi-house-fill"></i></span>
+      <span class="nav-label">Accueil</span>
+    </a>
+    <a href="#about" onclick="closeMobileNav()">
+      <span class="nav-icon"><i class="bi bi-person-fill"></i></span>
+      <span class="nav-label">À propos</span>
+    </a>
+    <a href="#terminal-section" onclick="closeMobileNav()">
+      <span class="nav-icon"><i class="bi bi-terminal-fill"></i></span>
+      <span class="nav-label">Console Cyber</span>
+    </a>
+    <a href="#services" onclick="closeMobileNav()">
+      <span class="nav-icon"><i class="bi bi-briefcase-fill"></i></span>
+      <span class="nav-label">Services</span>
+    </a>
+    <a href="#process" onclick="closeMobileNav()">
+      <span class="nav-icon"><i class="bi bi-diagram-2-fill"></i></span>
+      <span class="nav-label">Processus</span>
+    </a>
+    <a href="#skills" onclick="closeMobileNav()">
+      <span class="nav-icon"><i class="bi bi-code-slash"></i></span>
+      <span class="nav-label">Compétences</span>
+    </a>
+    <a href="#resume" onclick="closeMobileNav()">
+      <span class="nav-icon"><i class="bi bi-file-earmark-text-fill"></i></span>
+      <span class="nav-label">CV &amp; Certifs</span>
+    </a>
+    <a href="#portfolio" onclick="closeMobileNav()">
+      <span class="nav-icon"><i class="bi bi-grid-fill"></i></span>
+      <span class="nav-label">Portfolio</span>
+    </a>
+    <a href="#devis" onclick="closeMobileNav()">
+      <span class="nav-icon"><i class="bi bi-calculator-fill"></i></span>
+      <span class="nav-label">Devis Express</span>
+    </a>
+    <a href="#faq" onclick="closeMobileNav()">
+      <span class="nav-icon"><i class="bi bi-question-circle-fill"></i></span>
+      <span class="nav-label">FAQ</span>
+    </a>
+    <a href="#contact" onclick="closeMobileNav()">
+      <span class="nav-icon"><i class="bi bi-envelope-fill"></i></span>
+      <span class="nav-label">Contact</span>
+    </a>
+  </div>
+  <div class="drawer-footer">
+    <a href={withBase("asset/CV_Gregoir_SABA.pdf")} class="btn-cv-mobile" target="_blank" rel="noopener noreferrer">
+      <i class="bi bi-download"></i> Télécharger le CV
+    </a>
+    <div class="drawer-footer-meta">
+      <a href="https://github.com/Gregoir30" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com/in/gregoirsaba/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://wa.me/22890416117" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      <a href="mailto:contact@gregoirservices.tg" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+    </div>
+  </div>
+</nav>
+
+<!-- Header -->
+<header id="header" role="banner">
+  <div class="header-circle" aria-hidden="true"></div>
+  <div class="header-inner">
+    <div class="logo">
+      <a href="#home">Grégoir<span>.</span>SABA</a>
+    </div>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#home">Accueil</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#terminal-section">Console</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Processus</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#devis">Devis</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex;gap:12px;align-items:center;">
+      <button id="theme-toggle" aria-label="Basculer le thème clair/sombre">
+        <i class="bi bi-sun-fill icon-sun"></i>
+        <i class="bi bi-moon-fill icon-moon"></i>
+      </button>
+      <a href={withBase("asset/CV_Gregoir_SABA.pdf")} class="btn-cv" target="_blank" rel="noopener noreferrer" aria-label="Voir le CV (PDF)">
+        <i class="bi bi-file-earmark-arrow-down-fill"></i> CV
+      </a>
+      <div class="burger" id="burger" role="button" tabindex="0" aria-label="Menu mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</header>

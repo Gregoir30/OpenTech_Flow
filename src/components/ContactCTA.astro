@@ -1,0 +1,151 @@
+---
+---
+
+<!-- CONTACT -->
+<section id="contact" class="contact" aria-label="Contact">
+  <div class="container">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Travaillons ensemble</h2>
+    <p class="section-desc">Un projet web, une app mobile, un audit de sécurité ou une infrastructure réseau à
+      configurer ? Je suis là.</p>
+
+    <div class="contact-layout">
+      <!-- Formulaire -->
+      <div class="contact-form-panel fade-in">
+        <h3>Envoyez-moi un message</h3>
+        <p class="form-subtitle">
+          <span class="dot"></span>
+          Réponse garantie sous 24h — souvent moins
+        </p>
+
+        <div class="service-pills-label">
+          <i class="bi bi-tag-fill"></i> Type de demande
+        </div>
+        <div class="service-pills" id="service-pills">
+          <span class="service-pill active" data-value="web">Développement Web</span>
+          <span class="service-pill" data-value="mobile">App Mobile</span>
+          <span class="service-pill" data-value="audit">Audit / Pentest</span>
+          <span class="service-pill" data-value="reseau">Config Réseau</span>
+          <span class="service-pill" data-value="formation">Formation</span>
+          <span class="service-pill" data-value="autre">Autre</span>
+        </div>
+        <input type="hidden" id="selected-service" value="web" />
+
+        <form id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name"><i class="bi bi-person-fill"></i> Nom complet</label>
+              <input type="text" id="name" name="name" placeholder="Votre nom complet" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email"><i class="bi bi-envelope-fill"></i> Email</label>
+              <input type="email" id="email" name="email" placeholder="vous@email.com" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone"><i class="bi bi-telephone-fill"></i> Téléphone <span
+                style="font-weight:400;text-transform:none;letter-spacing:0;font-size:0.7rem;opacity:0.6;">(optionnel)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="+228 ..." autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="message"><i class="bi bi-chat-dots-fill"></i> Décrivez votre projet</label>
+            <textarea id="message" name="message" maxlength="600"
+              placeholder="Contexte, objectif, délai, budget estimé... Donnez-moi un maximum de détails !"
+              required></textarea>
+            <div class="char-count-bar"><span id="char-counter">0 / 600 caractères</span></div>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="bi bi-whatsapp"></i>
+            Envoyer via WhatsApp
+            <i class="bi bi-arrow-right" style="margin-left:auto;opacity:0.7;"></i>
+          </button>
+          <div class="form-success" id="form-success">
+            <i class="bi bi-whatsapp" style="font-size:1.2rem;"></i>
+            Ouverture WhatsApp avec votre message pré-rempli…
+          </div>
+          <div class="form-error" id="form-error">
+            <i class="bi bi-exclamation-circle-fill" style="font-size:1.2rem;"></i>
+            Erreur d'envoi. Contactez-moi directement sur WhatsApp ou par email.
+          </div>
+        </form>
+      </div>
+
+      <!-- Infos de contact -->
+      <aside class="contact-info-panel fade-in" aria-label="Informations de contact">
+        <!-- Disponibilité -->
+        <div class="availability-card">
+          <div class="avail-pulse"><i class="bi bi-check-circle-fill"></i></div>
+          <div class="avail-text">
+            <strong>Disponible pour nouveaux projets</strong>
+            <span>Freelance actif — Lomé, Togo &amp; remote</span>
+          </div>
+        </div>
+
+        <!-- Coordonnées cliquables -->
+        <a href="tel:+22890416117" class="cinfo-card" aria-label="Appeler">
+          <div class="cinfo-icon blue"><i class="bi bi-telephone-fill"></i></div>
+          <div class="cinfo-text">
+            <small>Téléphone</small>
+            <strong>+228 90 41 61 17</strong>
+          </div>
+          <i class="bi bi-chevron-right cinfo-arrow"></i>
+        </a>
+
+        <a href="mailto:contact@gregoirservices.tg" class="cinfo-card" aria-label="Envoyer un email">
+          <div class="cinfo-icon purple"><i class="bi bi-envelope-fill"></i></div>
+          <div class="cinfo-text">
+            <small>Email</small>
+            <strong>contact@gregoirservices.tg</strong>
+          </div>
+          <i class="bi bi-chevron-right cinfo-arrow"></i>
+        </a>
+
+        <a href="https://wa.me/22890416117?text=Bonjour%20Gr%C3%A9goir%2C%20je%20voudrais%20discuter%20d%27un%20projet."
+          target="_blank" rel="noopener noreferrer" class="cinfo-card" aria-label="WhatsApp">
+          <div class="cinfo-icon wa"><i class="bi bi-whatsapp"></i></div>
+          <div class="cinfo-text">
+            <small>WhatsApp</small>
+            <strong>Démarrer une conversation</strong>
+          </div>
+          <i class="bi bi-chevron-right cinfo-arrow"></i>
+        </a>
+
+        <a href="https://maps.google.com/?q=Avédji,Lomé,Togo" target="_blank" rel="noopener noreferrer"
+          class="cinfo-card" aria-label="Voir sur la carte">
+          <div class="cinfo-icon green"><i class="bi bi-geo-alt-fill"></i></div>
+          <div class="cinfo-text">
+            <small>Localisation</small>
+            <strong>Avédji, Lomé — Togo</strong>
+          </div>
+          <i class="bi bi-chevron-right cinfo-arrow"></i>
+        </a>
+
+        <!-- Réseaux sociaux -->
+        <div class="contact-social-row">
+          <a href="https://github.com/Gregoir30" target="_blank" rel="noopener noreferrer" class="csocial-btn gh"
+            aria-label="GitHub">
+            <i class="bi bi-github"></i> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/gregoirsaba/" target="_blank" rel="noopener noreferrer"
+            class="csocial-btn li" aria-label="LinkedIn">
+            <i class="bi bi-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://wa.me/22890416117" target="_blank" rel="noopener noreferrer" class="csocial-btn wa"
+            aria-label="WhatsApp">
+            <i class="bi bi-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+
+        <!-- Carte -->
+        <div class="contact-map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d411.8354083409409!2d1.1813388080911653!3d6.2056488585286145!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sus!4v1764416585495!5m2!1sfr!2sus"
+            title="Localisation de Grégoir SABA à Lomé, Togo" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+          </iframe>
+          <div class="map-label"><i class="bi bi-geo-alt-fill"></i> Lomé, Togo</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

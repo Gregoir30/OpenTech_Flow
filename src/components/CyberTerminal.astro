@@ -1,0 +1,52 @@
+---
+---
+
+<!-- CYBER TERMINAL -->
+<section id="terminal-section" class="terminal-section" aria-label="Console Cyber Interactive">
+  <div class="container">
+    <div class="section-label">Interactive Sandbox</div>
+    <h2 class="section-title">Console Cybersécurité</h2>
+    <p class="section-desc">Testez le terminal interactif ci-dessous. Tapez <code>help</code> ou cliquez sur les
+      suggestions pour exécuter des commandes en temps réel.</p>
+
+    <div class="terminal-wrapper fade-in">
+      <div class="terminal-topbar">
+        <div class="terminal-buttons">
+          <span class="btn-dot close"></span>
+          <span class="btn-dot minimize"></span>
+          <span class="btn-dot maximize"></span>
+        </div>
+        <div class="terminal-title"><i class="bi bi-terminal"></i> gregoir@sec-lab: ~ (bash)</div>
+        <div class="terminal-status"><span class="status-indicator"></span> ONLINE</div>
+      </div>
+      <div class="terminal-body" id="terminal-body">
+        <div class="term-line output system-msg">
+          Welcome to <strong>Gregoir SABA Cyber Console v2.4</strong> [Kernel Linux 6.8.0-kali].<br />
+          Type <span class="term-cmd-highlight">help</span> to list available commands or click quick actions below.
+        </div>
+      </div>
+      <div class="terminal-quick-actions">
+        <button type="button" class="term-chip" onclick="execTermCmd('whoami')"><i class="bi bi-person-badge"></i>
+          whoami</button>
+        <button type="button" class="term-chip" onclick="execTermCmd('skills')"><i class="bi bi-code-square"></i>
+          skills</button>
+        <button type="button" class="term-chip" onclick="execTermCmd('nmap')"><i class="bi bi-shield-check"></i>
+          nmap -sV</button>
+        <button type="button" class="term-chip" onclick="execTermCmd('projects')"><i
+            class="bi bi-folder-symlink"></i> projects</button>
+        <button type="button" class="term-chip" onclick="execTermCmd('audit')"><i class="bi bi-search"></i>
+          audit</button>
+        <button type="button" class="term-chip" onclick="execTermCmd('contact')"><i class="bi bi-send"></i>
+          contact</button>
+        <button type="button" class="term-chip" onclick="execTermCmd('clear')"><i class="bi bi-trash"></i>
+          clear</button>
+      </div>
+      <form class="terminal-input-row" id="terminal-form" onsubmit="handleTermSubmit(event)">
+        <span class="term-prompt">gregoir@sec-lab:~$</span>
+        <input type="text" id="terminal-input" placeholder="Entrez une commande (ex: help, whoami, nmap)..."
+          autocomplete="off" spellcheck="false" />
+        <button type="submit" aria-label="Envoyer commande"><i class="bi bi-arrow-return-left"></i></button>
+      </form>
+    </div>
+  </div>
+</section>

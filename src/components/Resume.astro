@@ -1,0 +1,123 @@
+---
+import { withBase } from '../utils/urls';
+---
+
+<!-- RESUME -->
+<section id="resume" class="resume" aria-label="CV et parcours">
+  <div class="container">
+    <div class="section-label">Parcours</div>
+    <h2 class="section-title">CV &amp; Expériences</h2>
+    <p class="section-desc">Mon parcours académique et professionnel témoigne d'une volonté constante d'apprendre et
+      de performer.</p>
+    <div class="resume-grid fade-in">
+      <div class="resume-card">
+        <h3>Profil</h3>
+        <ul class="profile-info">
+          <li><strong>Ville:</strong> Lomé, Togo</li>
+          <li><strong>Tél:</strong> <a href="tel:+22890416117">+228 90 41 61 17</a></li>
+          <li><strong>Email:</strong> <a href="mailto:contact@gregoirservices.tg">contact@<br />gregoirservices.tg</a></li>
+          <li><strong>Statut:</strong> Freelance disponible</li>
+        </ul>
+        <div style="margin-top:24px;">
+          <a href={withBase("asset/CV_Gregoir_SABA.pdf")} download="CV_Gregoir_SABA.pdf" class="btn-primary"
+            style="font-size:0.82rem;padding:10px 20px;">
+            <i class="bi bi-download"></i> Télécharger CV
+          </a>
+        </div>
+      </div>
+      <div class="resume-card">
+        <h3>Expérience</h3>
+        <div class="timeline-entry">
+          <time datetime="2021">2021 – Présent</time>
+          <strong>Freelance Full Stack &amp; Consultant Sécurité</strong>
+          <p>Grégoir Services — Développement d'applications web sécurisées, audits de vulnérabilité pour clients
+            locaux et internationaux, maintenance de parcs informatiques.</p>
+        </div>
+        <div class="timeline-entry">
+          <time datetime="2023">2023 – Présent</time>
+          <strong>Formateur en Informatique &amp; Sécurité Réseau</strong>
+          <p>Institut Informatique, Lomé — Animation de modules sur les réseaux TCP/IP, l'administration système et
+            les bases de la cybersécurité.</p>
+        </div>
+      </div>
+      <div class="resume-card">
+        <h3>Formation</h3>
+        <div class="timeline-entry">
+          <time>2022 – Présent</time>
+          <strong>Licence Professionnelle — Sécurité Informatique</strong>
+          <p>Lucas University College</p>
+        </div>
+        <div class="timeline-entry">
+          <time>2026 (En cours)</time>
+          <strong>Certification Développement Web &amp; Mobile</strong>
+          <p>D-Clic</p>
+        </div>
+        <div class="timeline-entry">
+          <time>2022</time>
+          <strong>Technicien Maintenance Informatique et Réseaux</strong>
+          <p>IFAID</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS & ACCREDITATIONS (FULL WIDTH) -->
+    <div class="certifications-block fade-in">
+      <div class="certif-header">
+        <h3 class="sub-block-title">
+          <i class="bi bi-patch-check-fill"></i> Certifications &amp; Accréditations
+        </h3>
+        <span class="certif-count">4 Accréditations Validées</span>
+      </div>
+
+      <div class="certifs-grid">
+        <div class="certif-card">
+          <div class="certif-top">
+            <div class="certif-badge degree"><i class="bi bi-award-fill"></i></div>
+            <span class="certif-tag">Diplôme Pro</span>
+          </div>
+          <div class="certif-info">
+            <h4>Licence Sécurité Informatique</h4>
+            <span>Lucas University College</span>
+            <p>Spécialisation Systèmes, Cryptographie, Audit &amp; Sécurité Réseau</p>
+          </div>
+        </div>
+
+        <div class="certif-card">
+          <div class="certif-top">
+            <div class="certif-badge dev"><i class="bi bi-code-slash"></i></div>
+            <span class="certif-tag">Certifié OIF</span>
+          </div>
+          <div class="certif-info">
+            <h4>Certif. Web &amp; Mobile Full Stack</h4>
+            <span>Programme D-Clic / OIF</span>
+            <p>Développement d'Apps Réactives, Flutter, Dart &amp; APIs Rest</p>
+          </div>
+        </div>
+
+        <div class="certif-card">
+          <div class="certif-top">
+            <div class="certif-badge net"><i class="bi bi-cpu-fill"></i></div>
+            <span class="certif-tag">Technicien</span>
+          </div>
+          <div class="certif-info">
+            <h4>Technicien Réseaux &amp; Maintenance</h4>
+            <span>IFAID Lomé</span>
+            <p>Câblage structuré, Routing/Switching Cisco &amp; Hardware</p>
+          </div>
+        </div>
+
+        <div class="certif-card">
+          <div class="certif-top">
+            <div class="certif-badge sec"><i class="bi bi-shield-lock-fill"></i></div>
+            <span class="certif-tag">Cyber Lab</span>
+          </div>
+          <div class="certif-info">
+            <h4>Hardening &amp; Pentesting OWASP</h4>
+            <span>Autodidacte &amp; Labs CTF</span>
+            <p>Kali Linux, Metasploit, Burp Suite, Nmap &amp; OSINT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

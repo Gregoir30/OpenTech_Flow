@@ -1,0 +1,25 @@
+---
+interface Props {
+  number: string;
+  icon: string;
+  title: string;
+  description: string;
+  tags: string[];
+  link?: string;
+}
+
+const { number, icon, title, description, tags, link = "#contact" } = Astro.props;
+---
+
+<article class="service-card fade-in">
+  <div class="service-number">{number}</div>
+  <div class="service-icon-wrap"><i class={`bi ${icon}`} aria-hidden="true"></i></div>
+  <h3>{title}</h3>
+  <p set:html={description} />
+  <div class="service-tags-mini">
+    {tags.map((tag) => <span>{tag}</span>)}
+  </div>
+  <a href={link} class="service-arrow" style="text-decoration:none;color:inherit;">
+    <i class="bi bi-arrow-right"></i> En savoir plus
+  </a>
+</article>
