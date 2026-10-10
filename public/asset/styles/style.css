@@ -756,9 +756,12 @@
 
   .tech-orbit {
     position: relative;
-    width: 360px;
-    height: 360px;
+    width: 380px;
+    height: 380px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .orbit-center {
@@ -766,71 +769,194 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100px;
-    height: 100px;
-    background: var(--bg2);
-    border: 1px solid var(--card-border);
+    width: 104px;
+    height: 104px;
+    background: radial-gradient(circle at 35% 35%, var(--bg3) 0%, var(--bg2) 70%, var(--bg) 100%);
+    border: 1.5px solid rgba(56, 189, 248, 0.4);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-display);
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 800;
     color: var(--white);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    box-shadow:
+      0 0 25px rgba(56, 189, 248, 0.2),
+      0 12px 32px rgba(0, 0, 0, 0.6),
+      inset 0 0 16px rgba(56, 189, 248, 0.12);
     text-align: center;
-    letter-spacing: 0.05em;
-    z-index: 2;
+    letter-spacing: 0.06em;
+    line-height: 1.35;
+    z-index: 5;
+    animation: center-pulse 4s ease-in-out infinite alternate;
   }
 
+  @keyframes center-pulse {
+    0% {
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.18), 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(56, 189, 248, 0.1);
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+    100% {
+      box-shadow: 0 0 32px rgba(56, 189, 248, 0.35), 0 12px 36px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(56, 189, 248, 0.2);
+      border-color: rgba(56, 189, 248, 0.6);
+    }
+  }
+
+  /* BASE ORBIT RING PATH */
   .orbit-ring {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    border: 1px dashed rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
   }
 
+  /* ORBIT 1: Trajectoire intérieure (Python) */
   .orbit-1 {
-    width: 200px;
-    height: 200px;
+    width: 190px;
+    height: 190px;
+    border: 1.5px solid rgba(56, 189, 248, 0.45);
+    box-shadow:
+      0 0 18px rgba(56, 189, 248, 0.16),
+      inset 0 0 14px rgba(56, 189, 248, 0.08);
     animation: orbit-spin 12s linear infinite;
+    z-index: 4;
   }
 
+  /* ORBIT 2: Trajectoire intermédiaire (Cyber / Sécurité) */
   .orbit-2 {
-    width: 300px;
-    height: 300px;
+    width: 285px;
+    height: 285px;
+    border: 1.5px solid rgba(129, 140, 248, 0.45);
+    box-shadow:
+      0 0 22px rgba(129, 140, 248, 0.16),
+      inset 0 0 16px rgba(129, 140, 248, 0.08);
     animation: orbit-spin 20s linear infinite reverse;
+    z-index: 3;
   }
 
+  /* ORBIT 3: Trajectoire extérieure (Infrastructure / Rouage) */
   .orbit-3 {
-    width: 360px;
-    height: 360px;
+    width: 375px;
+    height: 375px;
+    border: 1.5px solid rgba(52, 211, 153, 0.45);
+    box-shadow:
+      0 0 24px rgba(52, 211, 153, 0.16),
+      inset 0 0 18px rgba(52, 211, 153, 0.08);
     animation: orbit-spin 28s linear infinite;
+    z-index: 2;
   }
 
   @keyframes orbit-spin {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
     to {
       transform: translate(-50%, -50%) rotate(360deg);
     }
   }
 
+  /* ORBIT ITEM (GLOWING BADGES GLIDING ALONG THE PATH) */
   .orbit-item {
     position: absolute;
-    width: 40px;
-    height: 40px;
-    background: var(--bg3);
-    border: 1px solid var(--card-border);
-    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    background: rgba(12, 12, 32, 0.92);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
-    top: -20px;
+    font-size: 1.25rem;
+    top: -22px;
     left: 50%;
-    margin-left: -20px;
+    margin-left: -22px;
+    pointer-events: auto;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  }
+
+  /* Counter-rotate each item so icons stay upright and readable */
+  .orbit-1 .orbit-item {
+    border: 1.5px solid rgba(56, 189, 248, 0.7);
+    color: var(--accent);
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.4), 0 4px 12px rgba(0, 0, 0, 0.5);
+    animation: orbit-counter-1 12s linear infinite;
+  }
+
+  .orbit-2 .orbit-item {
+    border: 1.5px solid rgba(129, 140, 248, 0.7);
+    color: var(--accent2);
+    box-shadow: 0 0 16px rgba(129, 140, 248, 0.4), 0 4px 12px rgba(0, 0, 0, 0.5);
+    animation: orbit-counter-2 20s linear infinite reverse;
+  }
+
+  .orbit-3 .orbit-item {
+    border: 1.5px solid rgba(52, 211, 153, 0.7);
+    color: var(--accent3);
+    box-shadow: 0 0 16px rgba(52, 211, 153, 0.4), 0 4px 12px rgba(0, 0, 0, 0.5);
+    animation: orbit-counter-3 28s linear infinite;
+  }
+
+  @keyframes orbit-counter-1 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  @keyframes orbit-counter-2 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  @keyframes orbit-counter-3 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  /* Hover state on orbit items */
+  .orbit-item:hover {
+    transform: scale(1.15) !important;
+  }
+
+  /* Support Light Mode */
+  html.light .orbit-center {
+    background: radial-gradient(circle at 35% 35%, var(--bg) 0%, var(--bg2) 100%);
+    border-color: rgba(2, 132, 199, 0.5);
+    box-shadow: 0 0 25px rgba(2, 132, 199, 0.15), 0 10px 24px rgba(0, 0, 50, 0.1);
+    color: var(--text);
+  }
+
+  html.light .orbit-1 {
+    border-color: rgba(2, 132, 199, 0.5);
+    box-shadow: 0 0 18px rgba(2, 132, 199, 0.15);
+  }
+
+  html.light .orbit-2 {
+    border-color: rgba(109, 40, 217, 0.5);
+    box-shadow: 0 0 22px rgba(109, 40, 217, 0.15);
+  }
+
+  html.light .orbit-3 {
+    border-color: rgba(5, 150, 105, 0.5);
+    box-shadow: 0 0 24px rgba(5, 150, 105, 0.15);
+  }
+
+  html.light .orbit-item {
+    background: rgba(255, 255, 255, 0.95);
   }
 
   /* SERVICES */
