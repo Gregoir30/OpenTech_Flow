@@ -1,0 +1,563 @@
+﻿    #home.hero-kingfisher {
+      --hero-ease: cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      width: 100%;
+      min-height: 100svh;
+      overflow: hidden;
+      background-color: var(--bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+      margin: 0;
+      border: none;
+    }
+
+    /* Video element */
+    #home.hero-kingfisher .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.58;
+      filter: contrast(1.15) brightness(0.85);
+    }
+
+    /* Giant branded word in background */
+    #home.hero-kingfisher .hero-word {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 10vh;
+      z-index: 2;
+      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      font-size: clamp(70px, 15vw, 220px);
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      color: rgba(255, 255, 255, 0.03);
+      mix-blend-mode: screen;
+      pointer-events: none;
+      white-space: nowrap;
+      user-select: none;
+      text-align: center;
+      text-shadow: none;
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 40%, rgba(0, 0, 0, 0.2) 70%, transparent 100%);
+      mask-image: linear-gradient(180deg, #000 0%, #000 40%, rgba(0, 0, 0, 0.2) 70%, transparent 100%);
+    }
+
+    #home.hero-kingfisher .hero-word em {
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.04);
+    }
+
+    /* Seamless Dark Cyber Overlay */
+    #home.hero-kingfisher .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 60% 45%, rgba(5, 5, 16, 0.35) 0%, rgba(5, 5, 16, 0.82) 58%, var(--bg) 100%),
+        linear-gradient(to bottom, rgba(5, 5, 16, 0.4) 0%, transparent 20%, rgba(5, 5, 16, 0.7) 75%, var(--bg) 100%);
+    }
+
+    /* Reveal System (.rv) */
+    #home.hero-kingfisher .rv {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(8px);
+      transition:
+        opacity 0.9s var(--hero-ease),
+        transform 0.9s var(--hero-ease),
+        filter 0.9s var(--hero-ease);
+      transition-delay: calc(var(--d, 0) * 80ms);
+      will-change: opacity, transform, filter;
+    }
+
+    #home.hero-kingfisher.is-revealed .rv {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #home.hero-kingfisher .rv {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* Hero UI Container */
+    #home.hero-kingfisher .hero-ui {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 100px 48px 24px;
+      pointer-events: none;
+    }
+
+    #home.hero-kingfisher .hero-ui>* {
+      pointer-events: auto;
+    }
+
+    /* Stage Main Grid */
+    #home.hero-kingfisher .hero-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1400px;
+      margin: auto 0;
+      gap: 48px;
+    }
+
+    /* Left Copy Column */
+    #home.hero-kingfisher .hero-copy {
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    #home.hero-kingfisher .hero-badge-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    #home.hero-kingfisher .kingfisher-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(0, 229, 255, 0.06);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      font-family: var(--font-mono, 'JetBrains Mono', monospace);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      backdrop-filter: blur(10px);
+    }
+
+    #home.hero-kingfisher .kingfisher-badge .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    #home.hero-kingfisher .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-mono, 'JetBrains Mono', monospace);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent2);
+    }
+
+    #home.hero-kingfisher .hero-eyebrow .eyebrow-rule {
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    #home.hero-kingfisher .hero-title {
+      font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+      font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin: 0;
+    }
+
+    #home.hero-kingfisher .hero-title .accent-italic,
+    #home.hero-kingfisher .hero-title .highlight {
+      color: var(--accent);
+      background: none;
+      -webkit-text-fill-color: initial;
+      background-clip: initial;
+      filter: none;
+      font-style: normal;
+    }
+
+    #home.hero-kingfisher .hero-author-tag {
+      font-family: var(--font-mono, 'JetBrains Mono', monospace);
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    #home.hero-kingfisher .hero-author-tag strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    #home.hero-kingfisher .hero-lede {
+      font-family: var(--font-body, 'Space Grotesk', sans-serif);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      font-weight: 400;
+      max-width: 540px;
+      margin: 0;
+    }
+
+    #home.hero-kingfisher .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    #home.hero-kingfisher .hero-quick-contact {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    #home.hero-kingfisher .hero-quick-contact .chip-copy {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      border-radius: 9999px;
+      padding: 6px 14px;
+      font-size: 11px;
+      font-family: var(--font-mono, 'JetBrains Mono', monospace);
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    #home.hero-kingfisher .hero-quick-contact .chip-copy:hover {
+      color: var(--accent);
+      border-color: rgba(0, 229, 255, 0.4);
+      background: rgba(0, 229, 255, 0.08);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(0, 229, 255, 0.15);
+    }
+
+    /* Right Column: Profile Photo with Cyber Rings and Stats */
+    #home.hero-kingfisher .hero-image-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    #home.hero-kingfisher .hero-img-ring {
+      position: absolute;
+      width: clamp(430px, 42vw, 580px);
+      height: clamp(430px, 42vw, 580px);
+      border-radius: 50%;
+      border: 1px solid var(--card-border);
+      animation: rotate-ring 22s linear infinite;
+      pointer-events: none;
+    }
+
+    #home.hero-kingfisher .hero-img-ring::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    #home.hero-kingfisher .hero-img-ring-2 {
+      position: absolute;
+      width: clamp(380px, 38vw, 510px);
+      height: clamp(380px, 38vw, 510px);
+      border-radius: 50%;
+      border: 1px dashed var(--card-border);
+      animation: rotate-ring 32s linear infinite reverse;
+      pointer-events: none;
+    }
+
+    #home.hero-kingfisher .hero-photo {
+      width: clamp(330px, 33vw, 470px);
+      height: clamp(360px, 36vw, 510px);
+      object-fit: cover;
+      border-radius: 28px;
+      position: relative;
+      z-index: 1;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55);
+      background: var(--card);
+    }
+
+    #home.hero-kingfisher .hero-stats {
+      position: absolute;
+      right: -24px;
+      bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    #home.hero-kingfisher .stat-chip {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 12px 18px;
+      text-align: center;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    #home.hero-kingfisher .stat-chip strong {
+      display: block;
+      font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+      font-size: 1.4rem;
+      color: var(--accent);
+    }
+
+    #home.hero-kingfisher .stat-chip span {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* Bottom Strip */
+    #home.hero-kingfisher .hero-strip {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 48px;
+      border: none;
+      font-family: var(--font-mono, 'JetBrains Mono', monospace);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      background: rgba(5, 5, 16, 0.65);
+      backdrop-filter: blur(12px);
+    }
+
+    #home.hero-kingfisher .strip-species {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+    }
+
+    #home.hero-kingfisher .strip-species .species-latin {
+      font-family: var(--font-mono, 'JetBrains Mono', monospace);
+      font-style: normal;
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    #home.hero-kingfisher .strip-location {
+      text-align: center;
+      color: #64748b;
+    }
+
+    #home.hero-kingfisher .strip-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    #home.hero-kingfisher .btn-replay {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(0, 229, 255, 0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      color: var(--accent);
+      font-family: var(--font-mono, 'JetBrains Mono', monospace);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: all 0.25s var(--hero-ease);
+      cursor: pointer;
+    }
+
+    #home.hero-kingfisher .btn-replay:hover {
+      background: rgba(0, 229, 255, 0.18);
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    #home.hero-kingfisher .btn-replay svg {
+      transition: transform 0.4s var(--hero-ease);
+    }
+
+    #home.hero-kingfisher .btn-replay:hover svg {
+      transform: rotate(-180deg);
+    }
+
+    #home.hero-kingfisher .hero-scroll-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dim, #94a3b8);
+      transition: all 0.2s ease;
+    }
+
+    #home.hero-kingfisher .hero-scroll-btn:hover {
+      color: var(--accent);
+      border-color: rgba(0, 229, 255, 0.4);
+      background: rgba(0, 229, 255, 0.08);
+      transform: translateY(2px);
+    }
+
+    /* Light Theme Support for Hero */
+    html.light #home.hero-kingfisher {
+      background-color: var(--bg);
+    }
+
+    html.light #home.hero-kingfisher .hero-video {
+      opacity: 0.45;
+      filter: contrast(1.05) brightness(1.05);
+    }
+
+    html.light #home.hero-kingfisher .hero-word {
+      color: rgba(2, 132, 199, 0.05);
+      mix-blend-mode: multiply;
+      text-shadow: none;
+    }
+
+    html.light #home.hero-kingfisher .hero-word em {
+      color: rgba(109, 40, 217, 0.08);
+    }
+
+    html.light #home.hero-kingfisher .hero-overlay {
+      background:
+        radial-gradient(ellipse at 60% 45%, rgba(244, 246, 251, 0.35) 0%, rgba(244, 246, 251, 0.85) 60%, var(--bg) 100%),
+        linear-gradient(to bottom, rgba(244, 246, 251, 0.5) 0%, transparent 20%, rgba(244, 246, 251, 0.75) 75%, var(--bg) 100%);
+    }
+
+    html.light #home.hero-kingfisher .kingfisher-badge {
+      background: rgba(2, 132, 199, 0.08);
+      border-color: rgba(2, 132, 199, 0.25);
+    }
+
+    html.light #home.hero-kingfisher .hero-strip {
+      background: rgba(244, 246, 251, 0.85);
+    }
+
+    /* Responsive <= 900px */
+    @media (max-width: 900px) {
+      #home.hero-kingfisher {
+        height: auto;
+        min-height: 100svh;
+        overflow-y: visible;
+        overflow-x: hidden;
+      }
+
+      #home.hero-kingfisher .hero-ui {
+        padding: 90px 20px 20px;
+        min-height: 100svh;
+      }
+
+      #home.hero-kingfisher .hero-word {
+        font-size: 18vw;
+        top: 6vh;
+      }
+
+      #home.hero-kingfisher .hero-main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 36px;
+        margin-top: 20px;
+      }
+
+      #home.hero-kingfisher .hero-copy {
+        align-items: center;
+        max-width: 100%;
+      }
+
+      #home.hero-kingfisher .hero-badge-wrap {
+        justify-content: center;
+      }
+
+      #home.hero-kingfisher .hero-actions {
+        justify-content: center;
+      }
+
+      #home.hero-kingfisher .hero-quick-contact {
+        justify-content: center;
+      }
+
+      #home.hero-kingfisher .hero-photo {
+        width: clamp(280px, 78vw, 360px);
+        height: clamp(300px, 84vw, 390px);
+      }
+
+      #home.hero-kingfisher .hero-img-ring {
+        width: clamp(350px, 94vw, 440px);
+        height: clamp(350px, 94vw, 440px);
+      }
+
+      #home.hero-kingfisher .hero-img-ring-2 {
+        width: clamp(310px, 86vw, 390px);
+        height: clamp(310px, 86vw, 390px);
+      }
+
+      #home.hero-kingfisher .hero-stats {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -24px;
+        flex-direction: row;
+        gap: 8px;
+      }
+
+      #home.hero-kingfisher .hero-strip {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        text-align: center;
+        margin-top: 32px;
+        padding: 14px 20px;
+      }
+    }
+  </style>
