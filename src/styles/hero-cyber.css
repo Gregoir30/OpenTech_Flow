@@ -1,4 +1,4 @@
-﻿    #home.hero-kingfisher {
+    #home.hero-kingfisher {
       --hero-ease: cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
       width: 100%;
@@ -13,7 +13,7 @@
       border: none;
     }
 
-    /* Video element */
+    /* Video element - Enhanced 4K Nature Cinematography */
     #home.hero-kingfisher .hero-video {
       position: absolute;
       inset: 0;
@@ -22,8 +22,9 @@
       object-fit: cover;
       z-index: 1;
       pointer-events: none;
-      opacity: 0.58;
-      filter: contrast(1.15) brightness(0.85);
+      opacity: 0.82;
+      filter: contrast(1.08) brightness(0.96) saturate(1.15);
+      transition: opacity 1.2s var(--hero-ease);
     }
 
     /* Giant branded word in background */
@@ -54,15 +55,15 @@
       color: rgba(255, 255, 255, 0.04);
     }
 
-    /* Seamless Dark Cyber Overlay */
+    /* Seamless Cinematic Video Overlay with Crisp Text Legibility */
     #home.hero-kingfisher .hero-overlay {
       position: absolute;
       inset: 0;
       z-index: 3;
       pointer-events: none;
       background:
-        radial-gradient(ellipse at 60% 45%, rgba(5, 5, 16, 0.35) 0%, rgba(5, 5, 16, 0.82) 58%, var(--bg) 100%),
-        linear-gradient(to bottom, rgba(5, 5, 16, 0.4) 0%, transparent 20%, rgba(5, 5, 16, 0.7) 75%, var(--bg) 100%);
+        linear-gradient(90deg, rgba(5, 5, 16, 0.88) 0%, rgba(5, 5, 16, 0.72) 40%, rgba(5, 5, 16, 0.22) 72%, rgba(5, 5, 16, 0.45) 100%),
+        linear-gradient(180deg, rgba(5, 5, 16, 0.55) 0%, transparent 22%, transparent 72%, var(--bg) 100%);
     }
 
     /* Reveal System (.rv) */
@@ -123,7 +124,7 @@
 
     /* Left Copy Column */
     #home.hero-kingfisher .hero-copy {
-      max-width: 580px;
+      max-width: 640px;
       display: flex;
       flex-direction: column;
       gap: 18px;
@@ -183,12 +184,13 @@
 
     #home.hero-kingfisher .hero-title {
       font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-      font-size: clamp(2.4rem, 4.8vw, 4.2rem);
-      line-height: 1.1;
+      font-size: clamp(2rem, 3.5vw, 3.15rem);
+      line-height: 1.2;
       font-weight: 800;
       letter-spacing: -0.03em;
       color: var(--white);
       margin: 0;
+      max-width: 620px;
     }
 
     #home.hero-kingfisher .hero-title .accent-italic,
@@ -216,10 +218,10 @@
     #home.hero-kingfisher .hero-lede {
       font-family: var(--font-body, 'Space Grotesk', sans-serif);
       font-size: 1.05rem;
-      line-height: 1.8;
+      line-height: 1.75;
       color: var(--text-muted);
       font-weight: 400;
-      max-width: 540px;
+      max-width: 600px;
       margin: 0;
     }
 

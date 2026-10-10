@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = "Grégoir SABA — Expert Cybersécurité & Développeur Full Stack Web & Mobile | OpenTech Flow (Lomé, Togo)",
-  description = "Cabinet d'ingénierie tech OpenTech Flow fondé par Grégoir SABA à Lomé, Togo : Expert en Cybersécurité (Audits OWASP, Pentest, Hardening Linux/Cisco) & Développeur Full Stack (Flutter, Firebase, Laravel, React, Node). Solutions logicielles haute sécurité & scale international."
+  title = "Grégoir SABA | Développeur Web & Applications métier à Lomé",
+  description = "Développement web et applications métier à Lomé : Grégoir SABA accompagne entreprises, organisations et entrepreneurs avec OpenTech Flow."
 } = Astro.props;
 
 const siteUrl = "https://gregoir30.github.io/OpenTech_Flow/";
@@ -30,7 +30,7 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
   <title>{title}</title>
   <meta name="title" content={title} />
   <meta name="description" content={description} />
-  <meta name="keywords" content="Grégoir SABA, OpenTech Flow, développeur web Lomé, développeur full stack Togo, développeur mobile Flutter Togo, Firebase Togo, expert cybersécurité Togo, ethical hacker Afrique, pentesting OWASP, audit de sécurité informatique Lomé, configuration réseau Cisco, administration serveur Linux Ubuntu Debian, création application mobile Togo, freelance développeur Togo, DevSecOps Afrique, solutions tech Lomé" />
+  <meta name="keywords" content="Grégoir SABA, OpenTech Flow, développeur web Lomé, applications métier Lomé, solutions numériques Togo, développeur full stack Togo, développeur mobile Flutter Togo, Firebase Togo, création site web Lomé, création application sur mesure Togo, freelance développeur Togo, DevSecOps Afrique" />
   <meta name="author" content="Grégoir SABA" />
   <meta name="creator" content="Grégoir SABA (OpenTech Flow)" />
   <meta name="publisher" content={siteUrl} />
@@ -45,14 +45,14 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="format-detection" content="telephone=no" />
-  <meta name="classification" content="Software Engineering, Cybersecurity, Web & Mobile Development" />
+  <meta name="classification" content="Software Engineering, Web & Mobile Development, Business Applications" />
   <meta name="distribution" content="Global" />
   <meta name="rating" content="General" />
   <meta name="revisit-after" content="3 days" />
 
   <!-- AI & Generative Engine Optimization (GEO) Metadata -->
-  <meta name="ai-summary" content="Grégoir SABA est un ingénieur logiciel full stack et expert en cybersécurité offensive/défensive basé à Lomé, Togo, fondateur d'OpenTech Flow. Spécialiste du développement mobile Flutter multiplateforme (iOS/Android), backend Laravel/Node/Firebase, audits de sécurité applicative OWASP Top 10, tests d'intrusion (pentest), hardening Linux et ingénierie réseau Cisco/pfSense. Intervient au Togo, en Afrique de l'Ouest et en remote international." />
-  <meta name="ai-topics" content="Développement Full Stack, Applications Mobiles Flutter, Sécurité Web OWASP, Tests d'Intrusion Pentesting, Cybersécurité Afrique, Hardening Linux, Configuration Cisco, Firebase Cloud, Laravel API, DevSecOps" />
+  <meta name="ai-summary" content="Grégoir SABA est un développeur web et d'applications métier basé à Lomé, Togo, fondateur d'OpenTech Flow. Il conçoit des sites web professionnels et des applications sur mesure (Flutter, Laravel, React, Node, Firebase) pour aider les entreprises, organisations et entrepreneurs à développer leur présence et optimiser leurs opérations." />
+  <meta name="ai-topics" content="Développement Web, Applications Métier, Solutions Numériques Lomé, Applications Mobiles Flutter, Transformation Digitale Togo, Laravel, React, Firebase" />
   <meta name="article:author" content={siteUrl} />
   <meta name="article:publisher" content={siteUrl} />
 
@@ -71,15 +71,15 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OpenTech Flow — Grégoir SABA" />
-  <meta property="og:title" content="Grégoir SABA — Expert Cybersécurité & Développeur Full Stack | OpenTech Flow" />
-  <meta property="og:description" content="Développement web & mobile hautement sécurisé (Flutter/Firebase/Laravel), audits de vulnérabilités OWASP et architecture réseau à Lomé, Togo & Remote. Prestations sur-mesure & scale international." />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
   <meta property="og:url" content={siteUrl} />
   <meta property="og:image" content={profileImgUrl} />
   <meta property="og:image:secure_url" content={profileImgUrl} />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Portrait professionnel de Grégoir SABA — Expert Cybersécurité et Développeur Full Stack" />
+  <meta property="og:image:alt" content="Portrait professionnel de Grégoir SABA — Développeur Web & Applications Métier à Lomé, Togo" />
   <meta property="og:locale" content="fr_TG" />
   <meta property="og:locale:alternate" content="fr_FR" />
   <meta property="og:locale:alternate" content="en_US" />
@@ -88,10 +88,10 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@GregoirSABA" />
   <meta name="twitter:creator" content="@GregoirSABA" />
-  <meta name="twitter:title" content="Grégoir SABA — Expert Cybersécurité & Développeur Full Stack | OpenTech Flow" />
-  <meta name="twitter:description" content="Solutions de cybersécurité offensive (OWASP, Pentest) et ingénierie logicielle Web & Mobile Flutter à Lomé, Togo & International." />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={profileImgUrl} />
-  <meta name="twitter:image:alt" content="Grégoir SABA — Développeur Full Stack & Expert Cybersécurité" />
+  <meta name="twitter:image:alt" content="Grégoir SABA — Développeur Web & Applications Métier" />
 
   <!-- Favicons and Touch Icons -->
   <link rel="icon" type="image/png" sizes="32x32" href={withBase("asset/img/logo.png")} />
@@ -142,13 +142,14 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
         "contentUrl": profileImgUrl,
         "width": 1200,
         "height": 630,
-        "caption": "Grégoir SABA — Expert Cybersécurité et Développeur Full Stack"
+        "caption": "Grégoir SABA — Développeur Web & Applications Métier | OpenTech Flow"
       },
       {
         "@type": "WebPage",
         "@id": "https://gregoir30.github.io/OpenTech_Flow/#webpage",
         "url": "https://gregoir30.github.io/OpenTech_Flow/",
-        "name": "Grégoir SABA — Expert Cybersécurité & Développeur Full Stack | OpenTech Flow (Lomé, Togo)",
+        "name": "Grégoir SABA | Développeur Web & Applications métier à Lomé",
+        "description": "Développement web et applications métier à Lomé : Grégoir SABA accompagne entreprises, organisations et entrepreneurs avec OpenTech Flow.",
         "isPartOf": { "@id": "https://gregoir30.github.io/OpenTech_Flow/#website" },
         "about": { "@id": "https://gregoir30.github.io/OpenTech_Flow/#person" },
         "primaryImageOfPage": { "@id": "https://gregoir30.github.io/OpenTech_Flow/#primaryimage" },
@@ -166,8 +167,8 @@ const logoImgUrl = "https://gregoir30.github.io/OpenTech_Flow/asset/img/logo.png
         "alternateName": ["Gregoir30", "Gregoir SABA", "GSABA"],
         "gender": "Male",
         "nationality": "Togolese",
-        "jobTitle": "Développeur Full Stack & Expert Cybersécurité",
-        "description": "Ingénieur Full Stack (Flutter, Laravel, React, Node.js) et consultant en Cybersécurité offensive (Pentesting OWASP, audit de code, hardening Linux/Cisco) basé à Lomé, Togo.",
+        "jobTitle": "Développeur Web & Applications Métier",
+        "description": "Développeur web et mobile (Flutter, Laravel, React, Node.js) et fondateur d'OpenTech Flow à Lomé, Togo. Conception de sites professionnels et d'applications métier sur mesure pour entreprises, organisations et entrepreneurs.",
         "url": "https://gregoir30.github.io/OpenTech_Flow/",
         "image": { "@id": "https://gregoir30.github.io/OpenTech_Flow/#primaryimage" },
         "email": "contact@gregoirservices.tg",
