@@ -1,20 +1,37 @@
-# robots.txt for OpenTech Flow — Grégoir SABA (https://gregoir30.github.io/OpenTech_Flow/)
-# Enterprise GAFAM Standard Crawling & Generative Engine Optimization (GEO)
+
+# =========================================================
+# OpenTech Flow — robots.txt
+# Fondateur : Grégoir SABA
+# Site : https://gregoir30.github.io/OpenTech_Flow/
+# GitHub : https://github.com/gregoir30
+# LinkedIn : https://www.linkedin.com/in/gregoirsaba/
+#
+# Activités :
+# Développement web et mobile
+# Applications métier et solutions numériques
+# Cybersécurité et systèmes réseaux
+#
+# Objectifs : SEO et découverte des contenus publics
+# =========================================================
 
 User-agent: *
 Allow: /
+
 Disallow: /.git/
 Disallow: /.vscode/
 Disallow: /scratch/
+Disallow: /private/
 
-# Major Search Engine Crawlers
+Disallow: /*?debug=true
+Disallow: /*&debug=true
+Disallow: /*?admin=true
+Disallow: /*&admin=true
+
+# Moteurs de recherche
 User-agent: Googlebot
 Allow: /
 
 User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Googlebot-Mobile
 Allow: /
 
 User-agent: Bingbot
@@ -35,10 +52,7 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-User-agent: Applebot-Extended
-Allow: /
-
-# Generative AI & LLM Search Crawlers (SearchGPT, Gemini, Perplexity, Copilot, Claude)
+# Robots d'IA et de recherche conversationnelle
 User-agent: GPTBot
 Allow: /
 
@@ -51,16 +65,13 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-User-agent: Claude-Web
+User-agent: Claude-SearchBot
 Allow: /
 
-User-agent: Anthropic-AI
+User-agent: Claude-User
 Allow: /
 
 User-agent: PerplexityBot
-Allow: /
-
-User-agent: Bytespider
 Allow: /
 
 User-agent: CCBot
@@ -69,15 +80,26 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+User-agent: Meta-ExternalAgent
+Allow: /
+
 User-agent: FacebookBot
 Allow: /
 
 User-agent: Amazonbot
 Allow: /
 
+User-agent: Bytespider
+Allow: /
+
 User-agent: Diffbot
 Allow: /
 
-# XML Sitemap
+User-agent: ia_archiver
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap XML
 Sitemap: https://gregoir30.github.io/OpenTech_Flow/sitemap.xml
-Host: https://gregoir30.github.io/OpenTech_Flow/
